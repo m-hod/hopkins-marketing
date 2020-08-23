@@ -1,0 +1,35 @@
+@import "styles/variables.scss";
+
+.section {
+  margin: $spacing-lg 0;
+  display: flex;
+  justify-content: center;
+  &ExtraPadding {
+    padding: $spacing-xl 0;
+  }
+}
+
+.sectionGrid {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
+  gap: $spacing-xl;
+  svg {
+    color: $color-brand;
+  }
+  h2 {
+    margin: 0;
+  }
+}
+
+.cardGrid {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(375px, auto));
+  grid-auto-rows: minmax(600px, 600px);
+  gap: $spacing-lg;
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: 1fr;
+  }
+}

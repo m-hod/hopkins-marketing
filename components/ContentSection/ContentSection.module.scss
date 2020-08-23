@@ -1,0 +1,20 @@
+@import "styles/variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  span {
+    color: $color-brand;
+  }
+}
+
+.contentGrid {
+  margin-top: $spacing-md;
+  width: 100%;
+  display: grid;
+  gap: $spacing-lg;
+}
+
+.headingCentered {
+  text-align: center;
+}

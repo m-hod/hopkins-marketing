@@ -1,0 +1,18 @@
+@import "styles/variables.scss";
+
+.page {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  padding: $spacing-lg * 2;
+  display: flex;
+  justify-content: center;
+  // view height - footer - header
+  min-height: calc(100vh - 175px - 160px);
+}
+
+.content {
+  max-width: 1600px;
+}

@@ -1,65 +1,127 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import * as Page from "../components/Page/Page";
+import styles from "./index.module.scss";
+import {
+  FaQuoteRight,
+  FaQuoteLeft,
+  FaTwitter,
+  FaFacebookF,
+  FaGlobe,
+  FaInstagram,
+  FaGlobeAsia,
+} from "react-icons/fa";
+import QuoteCard from "../components/QuoteCard/QuoteCard";
+import ContentSection from "../components/ContentSection/ContentSection";
+import ServiceCard from "../components/ServiceCard/ServiceCard";
+import classnames from "classnames";
+import Client from "../components/Client/Client";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Page.Wrapper>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+      <Page.Content>
+        <div className={classnames(styles.section, styles.sectionExtraPadding)}>
+          <div className={styles.sectionGrid}>
+            <ContentSection
+              heading={
+                <>
+                  Excepteur sint occaecat <span>cupidatat</span> non proident,
+                  sunt in culpa qui officia
+                </>
+              }
+              contents={[
+                "Lorem ipsum dolor sit amet, consectetur adipisifwcing elit, sed do eiusmod tempor incididunt ut labore et dolore roipi magna aliqua. Ut enim ad minim veeniam, quis nostruklad exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in tufpoy voluptate velit esse cillum dolore eu fugiat nulla parieratur. Excepteur sint.",
+                "Culpa qui officia deserunt mollit anim id est laborum. Sed ut  perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi ropeior architecto beatae vitae dicta sunt explicabo.",
+              ]}
+            />
+            <QuoteCard
+              quote={
+                "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem"
+              }
+              author="by Name Surname"
+            />
+          </div>
         </div>
-      </main>
+        <div className={classnames(styles.section, styles.cardGrid)}>
+          <ServiceCard
+            title="SOCIAL MEDIA"
+            background="images/sara-kurfess-6lcT2kRPvnI-unsplash.jpg"
+            path="/services/media"
+            services={["Social Media", "Multi Media", "Branding"]}
+          />
+          <ServiceCard
+            title="PHOTOGRAPHY"
+            background="images/william-bayreuther-hfk6xOjQlFk-unsplash.jpg"
+            path="/services/photography"
+            services={["Weddings", "Graduations"]}
+          />
+          <ServiceCard
+            title="VIDEOGRAPHY"
+            background="images/wahid-khene-iKdQCIiSMlQ-unsplash.jpg"
+            path="/services/videography"
+            services={["Live Events", "Music Videos", "Filming and Editing"]}
+          />
+          <ServiceCard
+            title="WEB DESIGN"
+            background="images/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
+            path="/services/web"
+            services={["Webisites", "Server Hosting", "SEO"]}
+          />
+        </div>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+        <div className={classnames(styles.section, styles.sectionExtraPadding)}>
+          <div style={{ width: "75%" }}>
+            <ContentSection
+              centered
+              heading={
+                <>
+                  Excepteur sint occaecat <span>cupidatat</span> non proident,
+                  sunt in culpa qui officia
+                </>
+              }
+              contents={[
+                "Lorem ipsum dolor sit amet, consectetur adipisifwcing elit, sed do eiusmod tempor incididunt ut labore et dolore roipi magna aliqua. Ut enim ad minim veeniam, quis nostruklad exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in tufpoy voluptate velit esse cillum dolore eu fugiat nulla parieratur. Excepteur sint.",
+                "Culpa qui officia deserunt mollit anim id est laborum. Sed ut  perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi ropeior architecto beatae vitae dicta sunt explicabo.",
+              ]}
+            />
+          </div>
+        </div>
+
+        <div className={styles.section}>
+          <Client
+            name="Plot Collective"
+            url="www.plotco.co.nz"
+            image="images/inigo-de-la-maza-s285sDw5Ikc-unsplash.jpg"
+            socials={[
+              { url: "", icon: FaInstagram },
+              { url: "", icon: FaTwitter },
+              { url: "", icon: FaFacebookF },
+              { url: "", icon: FaGlobeAsia },
+            ]}
+            tags={["web", "brand", "media"]}
+            description="Culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi ropeior architecto beatae vitae dicta sunt explicabo."
+          />
+        </div>
+        <div className={styles.section}>
+          <Client
+            name="Ginger and Honey"
+            url="www.gingerandhoney.co.nz"
+            image="images/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg"
+            socials={[
+              { url: "", icon: FaInstagram },
+              { url: "", icon: FaTwitter },
+              { url: "", icon: FaFacebookF },
+              { url: "", icon: FaGlobeAsia },
+            ]}
+            tags={["web", "brand", "media"]}
+            description="Culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi ropeior architecto beatae vitae dicta sunt explicabo."
+          />
+        </div>
+      </Page.Content>
+    </Page.Wrapper>
+  );
 }

@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.container {
+  background-color: $color-light-gray;
+  padding: $spacing-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  & > * {
+    margin: $spacing-md 0;
+  }
+}
+
+.quote {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  text-align: center;
+  font-size: $text-size-regular;
+}
+
+.author {
+  font-size: $text-size-small;
+}

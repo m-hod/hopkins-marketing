@@ -1,0 +1,58 @@
+@import "styles/variables.scss";
+
+.container {
+  height: 200px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+}
+
+.image {
+  height: 100%;
+  display: block;
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: $spacing-md;
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tag {
+  display: inline-block;
+  padding: $spacing-xs $spacing-md;
+  margin-left: $spacing-md;
+  border-radius: 5px;
+  border: 2px solid $color-brand;
+  color: $color-brand;
+  font-size: $text-size-small;
+  font-family: $paragraph-font;
+}
+
+.socials {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $spacing-md;
+  svg {
+    margin-left: $spacing-lg;
+    color: $color-brand;
+  }
+}
+
+.description {
+  grid-column: span 2;
+}

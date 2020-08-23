@@ -1,0 +1,77 @@
+@import "styles/variables.scss";
+
+.container {
+  background-color: $color-brand;
+  width: 100%;
+  color: #ffffff !important;
+  padding: $spacing-md $spacing-lg;
+  font-family: $paragraph-font;
+  min-height: $footer-height;
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: $desktop) {
+    height: $footer-height;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr 1fr 0.5fr;
+  gap: $spacing-xl;
+  width: 100%;
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: $spacing-lg;
+  }
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+  p,
+  small {
+    color: #ffffff;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: $spacing-md;
+  }
+  &:hover {
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  &Links {
+    display: flex;
+    svg {
+      margin: 0 $spacing-sm;
+    }
+  }
+}
+
+.footerItem {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: $spacing-lg;
+  p {
+    font-size: $text-size-regular;
+    margin: 0;
+  }
+
+  &Title {
+    white-space: nowrap;
+  }
+  &Content {
+    p,
+    a {
+      margin-bottom: $spacing-sm;
+    }
+  }
+}
