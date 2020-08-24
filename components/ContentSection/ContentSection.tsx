@@ -20,8 +20,8 @@ export default function ContentSection({
         className={styles.contentGrid}
         style={{ gridTemplateColumns: `repeat(${contents.length}, 1fr)` }}
       >
-        {contents.map((content) => (
-          <p>{content}</p>
+        {contents.map((content, i) => (
+          <p key={i}>{content}</p>
         ))}
       </div>
     </div>

@@ -3,44 +3,21 @@
 .container {
   height: $header-height;
   width: 100%;
-  position: sticky;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  padding: $spacing-md 0;
+  padding: $spacing-md 50px;
   //   -webkit-box-shadow: 0px 1px 1px gray;
   //   -moz-box-shadow: 0px 1px 1px gray;
   //   box-shadow: 0px 1px 1px gray;
-  a {
-    color: $text-color-primary;
-  }
-}
-
-.home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .primary {
-    font-size: $text-size-title;
-  }
-
-  .sub {
-    font-size: $text-size-subtitle;
-  }
-
-  .alt {
-    font-size: $text-size-regular;
-    font-family: $paragraph-font;
-  }
 }
 
 .navLink {
-  color: $text-color-primary;
-  font-weight: bold;
+  color: #ffffff;
   font-size: $text-size-regular;
   margin: 0 $spacing-lg;
   font-family: $paragraph-font;
   &:hover {
-    color: $text-color-secondary;
+    color: rgba(255, 255, 255, 0.75);
   }
 }

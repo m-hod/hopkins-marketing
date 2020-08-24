@@ -36,8 +36,8 @@ function ServiceCard({
           )}
         >
           <ul>
-            {services.map((service) => (
-              <li>- {service}</li>
+            {services.map((service, i) => (
+              <li key={i}>- {service}</li>
             ))}
           </ul>
           <Link href={path}>

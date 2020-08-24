@@ -34,16 +34,18 @@ function Client({
             <p>{url}</p>
           </div>
           <div className={styles.metadata}>
-            <div>
-              {tags.map((tag) => (
-                <span className={styles.tag}>{tag}</span>
+            <div className={styles.tagContainer}>
+              {tags.map((tag, i) => (
+                <span key={i} className={styles.tag}>
+                  {tag}
+                </span>
               ))}
             </div>
             <div className={styles.socials}>
-              {socials.map((social) => {
+              {socials.map((social, i) => {
                 const Icon = social.icon;
                 return (
-                  <Link href={social.url}>
+                  <Link key={i} href={social.url}>
                     <a>
                       <Icon />
                     </a>

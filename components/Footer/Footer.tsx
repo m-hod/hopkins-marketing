@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import { FaArrowUp, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
+import Button from "../Button/Button";
 
 function Footer() {
   return (
@@ -13,6 +14,13 @@ function Footer() {
             <>
               <p>+64 027 123 9878</p>
               <p>hopkinsmarketing@gmail.com</p>
+              <Button
+                title="CONTACT"
+                action={() => {
+                  console.log("hi");
+                }}
+                style={{ marginTop: 8 }}
+              />
             </>
           }
         />

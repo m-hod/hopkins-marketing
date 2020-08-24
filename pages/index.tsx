@@ -18,13 +18,26 @@ import Client from "../components/Client/Client";
 
 export default function Home() {
   return (
-    <Page.Wrapper>
+    <Page.Wrapper headerMode="fixed">
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.hero}>
+        <div className={styles.heroContent}>
+          <img src="images/Logo.svg" alt="" />
+          <div className={styles.title}>
+            <span>HOPKINS</span>
+            <span>MARKETING</span>
+            <span>GROUP</span>
+          </div>
+        </div>
+      </div>
       <Page.Content>
-        <div className={classnames(styles.section, styles.sectionExtraPadding)}>
+        <div
+          className={classnames(styles.section, styles.sectionExtraPadding)}
+          style={{ paddingTop: 0 }}
+        >
           <div className={styles.sectionGrid}>
             <ContentSection
               heading={

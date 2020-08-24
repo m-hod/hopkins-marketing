@@ -1,14 +1,17 @@
 @import "styles/variables.scss";
 
 .container {
-  height: 200px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $spacing-lg;
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .image {
+  min-height: 200px;
   height: 100%;
   display: block;
   background-size: cover;
@@ -43,9 +46,15 @@
   font-family: $paragraph-font;
 }
 
+.tagContainer {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .socials {
   display: flex;
   justify-content: flex-end;
+  flex-wrap: nowrap;
   margin-top: $spacing-md;
   svg {
     margin-left: $spacing-lg;

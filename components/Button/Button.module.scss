@@ -1,0 +1,20 @@
+@import "styles/variables.scss";
+
+.button {
+  padding: $spacing-xs $spacing-lg;
+  border-radius: 5px;
+}
+
+.white {
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  &:hover {
+    border: 2px solid rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.75);
+  }
+}
+
+.brand {
+  border: 2px solid $color-brand;
+  color: $color-brand;
+}

@@ -1,36 +1,46 @@
-import React from "react";
+import React, { HTMLAttributes } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
+import Button from "../Button/Button";
 
-function Header() {
+function Header({ mode = "sticky" }: { mode?: "sticky" | "fixed" }) {
   return (
-    <header className={styles.container}>
-      <NavLink to="/about" label="ABOUT" />
-      <NavLink to="/blog" label="BLOG" />
-
-      <div>
-        <Link href="/">
-          <a className={styles.home}>
-            <div className={styles.sub}>AARON</div>
-            <div className={styles.primary}>HODGES</div>
-            <div className={styles.alt}>AUTHOR</div>
-          </a>
-        </Link>
-      </div>
-
-      <NavLink to="/books" label="BOOKS" />
-      <NavLink to="/worlds" label="WORLDS" />
+    <header className={styles.container} style={{ position: mode }}>
+      <NavLink to="/home" label="Home" />
+      <NavLink to="/services" label="Services" />
+      <NavLink
+        to="/about"
+        label="About"
+        nativeAttribs={{ style: { marginRight: 64 } }}
+      />
+      <Button
+        color="white"
+        title="CONTACT"
+        action={() => {
+          console.log("hi");
+        }}
+      />
     </header>
   );
 }
 
 export default Header;
 
-function NavLink({ to, label }: { to: string; label: string }) {
+function NavLink({
+  to,
+  label,
+  nativeAttribs,
+}: {
+  to: string;
+  label: string;
+  nativeAttribs?: HTMLAttributes<HTMLAnchorElement>;
+}) {
   return (
     <div>
       <Link href={to}>
-        <a className={styles.navLink}>{label}</a>
+        <a className={styles.navLink} {...nativeAttribs}>
+          {label}
+        </a>
       </Link>
     </div>
   );
