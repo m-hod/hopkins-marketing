@@ -59,6 +59,9 @@
   svg {
     margin-left: $spacing-lg;
     color: $color-brand;
+    &:hover {
+      color: $color-brand-transparent;
+    }
   }
 }
 

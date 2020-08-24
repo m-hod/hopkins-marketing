@@ -17,4 +17,8 @@
 .brand {
   border: 2px solid $color-brand;
   color: $color-brand;
+  &:hover {
+    color: $color-brand-transparent;
+    border: 2px solid $color-brand-transparent;
+  }
 }

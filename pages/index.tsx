@@ -15,15 +15,22 @@ import ContentSection from "../components/ContentSection/ContentSection";
 import ServiceCard from "../components/ServiceCard/ServiceCard";
 import classnames from "classnames";
 import Client from "../components/Client/Client";
+import useObserver from "../hooks/useObserver";
 
 export default function Home() {
+  const { isContentVisible } = useObserver("hero");
+  console.log(isContentVisible);
+
   return (
-    <Page.Wrapper headerMode="fixed">
+    <Page.Wrapper
+      headerMode="fixed"
+      headerColor={isContentVisible ? "white" : "brand"}
+    >
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.hero}>
+      <div className={styles.hero} id="hero">
         <div className={styles.heroContent}>
           <img src="images/Logo.svg" alt="" />
           <div className={styles.title}>

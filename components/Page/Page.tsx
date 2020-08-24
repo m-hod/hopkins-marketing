@@ -6,13 +6,15 @@ import styles from "./Page.module.scss";
 export function Wrapper({
   children,
   headerMode = "sticky",
+  headerColor = "brand",
 }: {
   children: React.ReactNode;
   headerMode?: "sticky" | "fixed";
+  headerColor?: "brand" | "white";
 }) {
   return (
     <main className={styles.page}>
-      <Header mode={headerMode} />
+      <Header mode={headerMode} color={headerColor} />
       {children}
       <Footer />
     </main>
