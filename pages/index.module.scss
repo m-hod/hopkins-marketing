@@ -9,12 +9,12 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-image: url("/images/hunters-race-MYbhN8KaaEc-unsplash.webp"),
       url("/images/hunters-race-MYbhN8KaaEc-unsplash.jpg");
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: $color-image-placeholder;
     filter: brightness(50%) contrast(95%);
     z-index: -2;
   }

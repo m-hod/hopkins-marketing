@@ -1,0 +1,35 @@
+@import "styles/variables.scss";
+
+.container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  padding: 0 $spacing-lg;
+}
+
+.content {
+  width: 75%;
+  p {
+    margin: $spacing-lg 0;
+  }
+  small {
+    color: $color-brand;
+  }
+  span {
+    color: $color-brand;
+  }
+}
+
+.emphasis {
+  @include emphasis;
+  font-style: italic;
+  font-family: $subtitle-font;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-items: center;
+}

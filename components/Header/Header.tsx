@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./Header.module.scss";
 import Button from "../Button/Button";
 import classnames from "classnames";
+import ContactForm from "../ContactForm/ContactForm";
 
 function Header({
   mode = "sticky",
@@ -27,20 +28,14 @@ function Header({
       </div>
 
       <div className={styles.linksContainer}>
-        <NavLink to="/home" label="Home" />
+        <NavLink to="/" label="Home" />
         <NavLink to="/services" label="Services" />
         <NavLink
           to="/about"
           label="About"
           nativeAttribs={{ style: { marginRight: 64 } }}
         />
-        <Button
-          color={color}
-          title="CONTACT"
-          action={() => {
-            console.log("hi");
-          }}
-        />
+        <ContactForm buttonColor={color} />
       </div>
     </header>
   );

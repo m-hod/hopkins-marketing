@@ -2,11 +2,8 @@ import Head from "next/head";
 import * as Page from "../components/Page/Page";
 import styles from "./index.module.scss";
 import {
-  FaQuoteRight,
-  FaQuoteLeft,
   FaTwitter,
   FaFacebookF,
-  FaGlobe,
   FaInstagram,
   FaGlobeAsia,
 } from "react-icons/fa";
@@ -19,7 +16,6 @@ import useObserver from "../hooks/useObserver";
 
 export default function Home() {
   const { isContentVisible } = useObserver("hero");
-  console.log(isContentVisible);
 
   return (
     <Page.Wrapper
