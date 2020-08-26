@@ -1,0 +1,23 @@
+@import "styles/variables.scss";
+
+.input {
+  border: 2px solid $color-dark-gray;
+  height: 40px;
+  width: 100%;
+  padding: $spacing-sm;
+  box-sizing: border-box;
+  &Focused {
+    border: 2px solid $color-brand;
+  }
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.label {
+  &Focused {
+    color: $color-brand;
+  }
+}

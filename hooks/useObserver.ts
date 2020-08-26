@@ -8,15 +8,20 @@ const useObserver = (reference: string) => {
       reference: string,
       setContentState: (arg: boolean) => void
     ) => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setContentState(true);
-          } else {
-            setContentState(false);
-          }
-        });
-      });
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setContentState(true);
+            } else {
+              setContentState(false);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
       const target: Element | null = document.querySelector(`#${reference}`);
       if (target) {
         observer.observe(target);

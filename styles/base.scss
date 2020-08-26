@@ -5,6 +5,8 @@ body {
   overflow-x: hidden;
   box-sizing: border-box;
   position: relative;
+  min-width: 300px;
+  @include scrollbar;
 }
 
 div,
@@ -52,7 +54,10 @@ button {
 p,
 ul,
 a,
-small {
+small,
+label,
+input,
+textarea {
   @include paragraph;
   margin: $spacing-sm 0;
 }

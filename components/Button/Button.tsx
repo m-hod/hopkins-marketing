@@ -6,13 +6,15 @@ function Button(
   props: {
     color?: "white" | "brand";
     title: string;
-    action: Function;
+    action?: Function;
   } & HTMLAttributes<HTMLButtonElement>
 ) {
   const { color = "white", title, action, ...rest } = props;
   return (
     <button
-      onClick={() => action()}
+      onClick={() => {
+        action && action();
+      }}
       className={classnames(styles.button, styles[color])}
       {...rest}
     >
