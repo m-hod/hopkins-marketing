@@ -85,7 +85,7 @@ export default function Home() {
             title="WEB DESIGN"
             background="images/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
             path="/services/web"
-            services={["Webisites", "Server Hosting", "SEO"]}
+            services={["Websites", "Server Hosting", "SEO"]}
           />
         </div>
 

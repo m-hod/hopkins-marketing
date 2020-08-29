@@ -1,0 +1,33 @@
+@import "styles/variables.scss";
+
+.container {
+  display: grid;
+  width: 100%;
+  grid-template-areas: "left right";
+  grid-template-columns: 0.5fr 0.5fr;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: $spacing-lg $spacing-xl * 2;
+  width: 100%;
+  flex-direction: column;
+  small {
+    color: $color-brand;
+    margin-bottom: $spacing-md;
+  }
+  &Section {
+    margin-bottom: $spacing-lg;
+  }
+}
+
+.image {
+  min-height: calc(100vh - 75px);
+  width: 100%;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  background-color: $color-image-placeholder;
+}

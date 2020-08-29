@@ -25,12 +25,12 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
   function updateState(e: string, key: keyof State) {
     setState((prevState) => {
       const newState = { ...prevState };
-      console.log(newState);
-      console.log(newState[key]);
       newState[key] = e;
       return newState;
     });
   }
+
+  console.log(isOpen);
 
   return (
     <>
@@ -63,7 +63,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   label="First Name"
                   onChange={(e) => {
                     const newValue = e.target.value;
-                    console.log(newValue);
                     updateState(newValue, "first_name");
                   }}
                   required
@@ -73,7 +72,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   label="Last Name"
                   onChange={(e) => {
                     const newValue = e.target.value;
-                    console.log(newValue);
                     updateState(newValue, "last_name");
                   }}
                 />
@@ -82,7 +80,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   label="Phone"
                   onChange={(e) => {
                     const newValue = e.target.value;
-                    console.log(newValue);
                     updateState(newValue, "phone");
                   }}
                 />
@@ -91,7 +88,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   label="Email Address"
                   onChange={(e) => {
                     const newValue = e.target.value;
-                    console.log(newValue);
                     updateState(newValue, "email");
                   }}
                   required
@@ -103,7 +99,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                     label="Message"
                     onChange={(e) => {
                       const newValue = e.target.value;
-                      console.log(newValue);
                       updateState(newValue, "message");
                     }}
                     required

@@ -11,6 +11,7 @@ function Modal({
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  console.log("re-renders");
   const rootEl = document.getElementById("__next");
   const modalEl = document.createElement("div");
 

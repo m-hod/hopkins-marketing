@@ -2,7 +2,7 @@ import React, { HTMLAttributes, useState } from "react";
 import styles from "./Input.module.scss";
 import classnames from "classnames";
 
-type Props = HTMLAttributes<HTMLInputElement | HTMLTextAreaElement> & {
+type Props = React.HTMLProps<HTMLInputElement | HTMLTextAreaElement> & {
   type?: "input" | "textarea";
   value: string | number;
   label: string;
@@ -22,10 +22,11 @@ function Input(props: Props) {
         {label}
       </label>
       {type === "textarea" ? (
+        //@ts-ignore
         <textarea
           value={value}
           id={label}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
           onFocus={() => {
             setFocused(true);
           }}
@@ -40,11 +41,12 @@ function Input(props: Props) {
           {...rest}
         />
       ) : (
+        //@ts-ignore
         <input
           value={value}
           type="text"
           id={label}
-          onChange={onChange}
+          onChange={(e) => onChange(e)}
           onFocus={() => {
             setFocused(true);
           }}
