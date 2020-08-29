@@ -8,6 +8,7 @@ function ServiceSection({
   content,
   imageUrl,
   orientation,
+  id,
 }: {
   title: string;
   content: {
@@ -16,9 +17,10 @@ function ServiceSection({
   }[];
   imageUrl: string;
   orientation: "left" | "right";
+  id: string;
 }) {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id={id}>
       <div className={styles.content} style={{ gridArea: orientation }}>
         <small>{title}</small>
         {content.map((el, i) => (

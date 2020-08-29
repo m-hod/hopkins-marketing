@@ -5,13 +5,17 @@
   width: 100%;
   grid-template-areas: "left right";
   grid-template-columns: 0.5fr 0.5fr;
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: 1fr;
+    grid-template-areas: "left";
+  }
 }
 
 .content {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding: $spacing-lg $spacing-xl * 2;
+  padding: $spacing-xl $spacing-xl * 2;
   width: 100%;
   flex-direction: column;
   small {
@@ -20,6 +24,15 @@
   }
   &Section {
     margin-bottom: $spacing-lg;
+  }
+  @media screen and (max-width: $desktop) {
+    padding: $spacing-xl;
+  }
+  @media screen and (max-width: $tablet) {
+    padding: $spacing-xl;
+  }
+  @media screen and (max-width: $mobile) {
+    padding: $spacing-lg;
   }
 }
 
@@ -30,4 +43,17 @@
   background-size: cover;
   background-position: center;
   background-color: $color-image-placeholder;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: $color-brand;
+    z-index: 1;
+    opacity: 0.1;
+  }
+  @media screen and (max-width: $tablet) {
+    min-height: 50vh;
+  }
 }

@@ -6,6 +6,7 @@ import {
   FaFacebookF,
   FaInstagram,
   FaGlobeAsia,
+  FaChevronDown,
 } from "react-icons/fa";
 import QuoteCard from "../components/QuoteCard/QuoteCard";
 import ContentSection from "../components/ContentSection/ContentSection";
@@ -34,6 +35,17 @@ export default function Home() {
             <span>MARKETING</span>
             <span>GROUP</span>
           </div>
+        </div>
+        <div
+          className={styles.chevron}
+          onClick={() => {
+            window.scrollTo({
+              behavior: "smooth",
+              top: window.innerHeight - 75,
+            });
+          }}
+        >
+          <FaChevronDown size={30} />
         </div>
       </div>
       <Page.Content>

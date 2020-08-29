@@ -25,10 +25,18 @@ function Footer() {
           title="SERVICES"
           content={
             <>
-              <LinkItem to="/services/media" label="Social Media" />
-              <LinkItem to="/services/photography" label="Photography" />
-              <LinkItem to="/services/videography" label="Videography" />
-              <LinkItem to="/web" label="Web Design" />
+              <LinkItem to="/services" query="media" label="Social Media" />
+              <LinkItem
+                to="/services"
+                query="photography"
+                label="Photography"
+              />
+              <LinkItem
+                to="/services"
+                query="videography"
+                label="Videography"
+              />
+              <LinkItem to="/services" query="web" label="Web Design" />
             </>
           }
         />
@@ -53,8 +61,10 @@ function LinkItem({
   label,
   icon,
   external,
+  query,
 }: {
   to: string;
+  query?: string;
   label?: string;
   icon?: JSX.Element;
   external?: boolean;
@@ -67,7 +77,7 @@ function LinkItem({
     : {};
 
   return (
-    <Link href={to}>
+    <Link href={{ pathname: to, query: { service: query } }}>
       <a {...externalProps} className={styles.link}>
         {icon} {label}
       </a>

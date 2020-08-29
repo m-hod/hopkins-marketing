@@ -64,7 +64,6 @@
     font-size: $text-size-regular;
     margin: 0;
   }
-
   &Title {
     white-space: nowrap;
   }
@@ -73,5 +72,9 @@
     a {
       margin-bottom: $spacing-sm;
     }
+  }
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    gap: $spacing-md;
   }
 }

@@ -1,15 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import * as Page from "../../components/Page/Page";
 import { useRouter } from "next/router";
-import Input from "../../components/Input/Input";
 import ServiceSection from "../../components/ServiceSection/ServiceSection";
 
 function service() {
   const router = useRouter();
 
+  useEffect(() => {
+    if (router.query.service) {
+      const el = document.getElementById(`${router.query.service}`);
+      if (el) {
+        const timeout = setTimeout(() => {
+          window.scrollTo({ top: el.offsetTop - 75, behavior: "smooth" });
+        }, 250);
+        return () => {
+          clearTimeout(timeout);
+        };
+      }
+    }
+  }, [router]);
+
   return (
-    <Page.Wrapper>
+    <Page.Wrapper headerMode="sticky">
       <ServiceSection
+        id="media"
         title="MEDIA MANAGEMENT 0.1"
         imageUrl="/images/jakob-owens-WUmb_eBrpjs-unsplash.jpg"
         orientation="left"
@@ -32,6 +46,7 @@ function service() {
         ]}
       />
       <ServiceSection
+        id="photography"
         title="PHOTOGRAPHY 0.2"
         imageUrl="/images/alexander-dummer-aS4Duj2j7r4-unsplash.jpg"
         orientation="right"
@@ -49,6 +64,7 @@ function service() {
         ]}
       />
       <ServiceSection
+        id="videography"
         title="VIDEOGRAPHY 0.3"
         imageUrl="/images/jason-jarrach-NL6pn-d-MnY-unsplash.jpg"
         orientation="left"
@@ -71,6 +87,7 @@ function service() {
         ]}
       />
       <ServiceSection
+        id="web"
         title="WEB DESIGN 0.4"
         imageUrl="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.jpg"
         orientation="right"
