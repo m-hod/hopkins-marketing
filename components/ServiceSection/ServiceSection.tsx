@@ -1,7 +1,5 @@
 import React from "react";
 import styles from "./ServiceSection.module.scss";
-import classnames from "classnames";
-import { Content } from "../Page/Page";
 
 function ServiceSection({
   title,
@@ -21,7 +19,7 @@ function ServiceSection({
 }) {
   return (
     <div className={styles.container} id={id}>
-      <div className={styles.content} style={{ gridArea: orientation }}>
+      <div className={styles.content}>
         <small>{title}</small>
         {content.map((el, i) => (
           <div key={i} className={styles.contentSection}>
@@ -32,7 +30,7 @@ function ServiceSection({
       </div>
       <div
         className={styles.image}
-        style={{ backgroundImage: `url(${imageUrl})` }}
+        style={{ backgroundImage: `url(${imageUrl})`, gridArea: orientation }}
       />
     </div>
   );

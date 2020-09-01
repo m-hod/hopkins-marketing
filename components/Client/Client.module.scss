@@ -7,6 +7,7 @@
   gap: $spacing-lg;
   @media screen and (max-width: $tablet) {
     grid-template-columns: 1fr;
+    gap: $spacing-md;
   }
 }
 
@@ -27,6 +28,11 @@
   display: grid;
   grid-template-columns: 1fr auto;
   gap: $spacing-md;
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .metadata {
@@ -44,11 +50,19 @@
   color: $color-brand;
   font-size: $text-size-small;
   font-family: $paragraph-font;
+  @media screen and (max-width: $mobile) {
+    margin-left: 0;
+    margin-right: $spacing-md;
+  }
 }
 
 .tagContainer {
   display: flex;
+  justify-content: flex-end;
   flex-wrap: nowrap;
+  @media screen and (max-width: $mobile) {
+    justify-content: flex-start;
+  }
 }
 
 .socials {
@@ -61,6 +75,13 @@
     color: $color-brand;
     &:hover {
       color: $color-brand-transparent;
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    justify-content: flex-start;
+    svg {
+      margin-left: 0;
+      margin-right: $spacing-lg;
     }
   }
 }

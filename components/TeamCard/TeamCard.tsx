@@ -28,7 +28,7 @@ function TeamCard({
           <p>{name}</p>
           <p>{role}</p>
         </div>
-        <div />
+        <div className={styles.spacer} />
         <p className={styles.description}>{description}</p>
       </div>
     </div>

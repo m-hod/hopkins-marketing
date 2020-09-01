@@ -7,12 +7,14 @@ import Link from "next/link";
 function ServiceCard({
   title,
   background,
-  path,
+  to,
+  query,
   services,
 }: {
   title: string;
   background: string;
-  path: string;
+  to: string;
+  query: string;
   services: string[];
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -40,7 +42,7 @@ function ServiceCard({
               <li key={i}>- {service}</li>
             ))}
           </ul>
-          <Link href={path}>
+          <Link href={{ pathname: to, query: { service: query } }}>
             <a className={styles.link}>
               Find out more <FaChevronRight size={12} />
             </a>

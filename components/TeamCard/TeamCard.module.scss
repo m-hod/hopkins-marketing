@@ -22,7 +22,7 @@
 }
 
 .content {
-  margin: 0 $spacing-xl;
+  margin: $spacing-lg $spacing-xl;
   z-index: 2;
   display: grid;
   grid-template-columns: auto 1fr;
@@ -30,6 +30,10 @@
   width: 100%;
   p {
     color: #ffffff;
+  }
+  @media screen and (max-width: $mobile) {
+    column-gap: $spacing-md;
+    margin: $spacing-lg;
   }
 }
 
@@ -47,6 +51,9 @@
 
 .description {
   font-style: italic;
+  @media screen and (max-width: $mobile) {
+    grid-column: span 2;
+  }
 }
 
 .titles {
@@ -56,5 +63,11 @@
   flex-direction: column;
   p {
     margin: 0 2px;
+  }
+}
+
+.spacer {
+  @media screen and (max-width: $mobile) {
+    display: none;
   }
 }

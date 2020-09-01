@@ -2,6 +2,14 @@ import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.scss";
 
+let rootEl;
+let modalEl;
+
+if (process.browser) {
+  rootEl = document.getElementById("__next");
+  modalEl = document.createElement("div");
+}
+
 function Modal({
   children,
   isOpen,
@@ -11,10 +19,6 @@ function Modal({
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  console.log("re-renders");
-  const rootEl = document.getElementById("__next");
-  const modalEl = document.createElement("div");
-
   const scrollPositionAtRender = useRef(document.documentElement.scrollTop);
 
   useEffect(() => {
@@ -41,6 +45,8 @@ function Modal({
       rootEl.removeChild(modalEl);
     }
   }, []);
+
+  if (!rootEl || !modalEl) return null;
 
   return ReactDOM.createPortal(
     <div

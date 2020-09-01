@@ -10,6 +10,9 @@
   z-index: 999;
   background-color: transparent;
   top: 0;
+  @media screen and (max-width: $mobile) {
+    padding: 0 $spacing-sm;
+  }
 }
 
 .logo {
@@ -20,6 +23,9 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  @media screen and (max-width: $mobile) {
+    display: none;
+  }
 }
 
 .navLink {
@@ -29,6 +35,16 @@
   font-family: $paragraph-font;
   &:hover {
     color: rgba(255, 255, 255, 0.75);
+  }
+  @media screen and (max-width: $tablet) {
+    margin: 0 $spacing-md;
+  }
+}
+
+.lastLink {
+  margin-right: $spacing-xl;
+  @media screen and (max-width: $tablet) {
+    margin-right: $spacing-lg;
   }
 }
 

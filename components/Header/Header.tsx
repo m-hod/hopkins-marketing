@@ -33,7 +33,9 @@ function Header({
         <NavLink
           to="/about"
           label="About"
-          nativeAttribs={{ style: { marginRight: 64 } }}
+          nativeAttribs={{
+            className: styles.lastLink,
+          }}
         />
         <ContactForm buttonColor={color} />
       </div>
@@ -55,7 +57,10 @@ function NavLink({
   return (
     <div>
       <Link href={to}>
-        <a className={styles.navLink} {...nativeAttribs}>
+        <a
+          {...nativeAttribs}
+          className={classnames(styles.navLink, nativeAttribs?.className)}
+        >
           {label}
         </a>
       </Link>

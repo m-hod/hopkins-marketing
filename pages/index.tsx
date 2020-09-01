@@ -78,31 +78,35 @@ export default function Home() {
           <ServiceCard
             title="SOCIAL MEDIA"
             background="images/sara-kurfess-6lcT2kRPvnI-unsplash.jpg"
-            path="/services/media"
+            to="/services"
+            query="media"
             services={["Social Media", "Multi Media", "Branding"]}
           />
           <ServiceCard
             title="PHOTOGRAPHY"
             background="images/william-bayreuther-hfk6xOjQlFk-unsplash.jpg"
-            path="/services/photography"
+            to="/services"
+            query="photography"
             services={["Weddings", "Graduations"]}
           />
           <ServiceCard
             title="VIDEOGRAPHY"
             background="images/wahid-khene-iKdQCIiSMlQ-unsplash.jpg"
-            path="/services/videography"
+            to="/services"
+            query="videography"
             services={["Live Events", "Music Videos", "Filming and Editing"]}
           />
           <ServiceCard
             title="WEB DESIGN"
             background="images/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
-            path="/services/web"
+            to="/services"
+            query="web"
             services={["Websites", "Server Hosting", "SEO"]}
           />
         </div>
 
         <div className={classnames(styles.section, styles.sectionExtraPadding)}>
-          <div style={{ width: "75%" }}>
+          <div className={styles.sectionSlim}>
             <ContentSection
               centered
               heading={

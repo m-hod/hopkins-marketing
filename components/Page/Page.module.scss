@@ -11,6 +11,12 @@
   justify-content: center;
   // view height - footer - header
   min-height: calc(100vh - 175px - 75px);
+  @media screen and (max-width: $tablet) {
+    padding: $spacing-lg;
+  }
+  @media screen and (max-width: $mobile) {
+    padding: $spacing-lg $spacing-md;
+  }
 }
 
 .content {

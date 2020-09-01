@@ -10,7 +10,12 @@
   color: #ffffff;
   h3 {
     color: #ffffff;
-    font-size: 48px;
+    font-size: $text-size-title;
+  }
+  @media screen and (max-width: $mobile) {
+    h3 {
+      font-size: 36px;
+    }
   }
 }
 

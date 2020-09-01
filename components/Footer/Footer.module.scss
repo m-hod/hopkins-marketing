@@ -12,6 +12,9 @@
   @media screen and (min-width: $desktop) {
     height: $footer-height;
   }
+  @media screen and (max-width: $mobile) {
+    padding: $spacing-lg;
+  }
 }
 
 .grid {

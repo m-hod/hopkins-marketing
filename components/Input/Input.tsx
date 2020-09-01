@@ -3,14 +3,14 @@ import styles from "./Input.module.scss";
 import classnames from "classnames";
 
 type Props = React.HTMLProps<HTMLInputElement | HTMLTextAreaElement> & {
-  type?: "input" | "textarea";
+  use?: "input" | "textarea";
   value: string | number;
   label: string;
   onChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void;
 };
 
 function Input(props: Props) {
-  const { value, label, onChange, type = "input", ...rest } = props;
+  const { value, label, onChange, use = "input", ...rest } = props;
   const [focused, setFocused] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ function Input(props: Props) {
       >
         {label}
       </label>
-      {type === "textarea" ? (
+      {use === "textarea" ? (
         //@ts-ignore
         <textarea
           value={value}

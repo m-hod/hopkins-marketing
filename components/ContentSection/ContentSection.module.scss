@@ -13,6 +13,10 @@
   width: 100%;
   display: grid;
   gap: $spacing-lg;
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: 1fr !important;
+    gap: $spacing-sm;
+  }
 }
 
 .headingCentered {

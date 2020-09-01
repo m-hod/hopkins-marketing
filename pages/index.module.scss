@@ -32,6 +32,10 @@
     height: 250px;
     min-height: 250px;
   }
+  @media screen and (max-width: $tablet) {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .chevron {
@@ -72,6 +76,19 @@
       color: $color-brand;
     }
   }
+  @media screen and (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: normal;
+    margin: $spacing-md $spacing-lg;
+    span {
+      font-size: $text-size-title;
+      position: relative !important;
+      top: auto !important;
+      bottom: auto !important;
+    }
+  }
 }
 
 .section {
@@ -94,13 +111,25 @@
   h2 {
     margin: 0;
   }
+  @media screen and (max-width: $tablet) {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: $spacing-md;
+  }
+}
+
+.sectionSlim {
+  width: 75%;
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+  }
 }
 
 .cardGrid {
   width: 100%;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fill, minmax(375px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
   grid-auto-rows: minmax(600px, 600px);
   gap: $spacing-lg;
   @media screen and (max-width: $tablet) {

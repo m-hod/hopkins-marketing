@@ -6,6 +6,15 @@
   grid-template-columns: 1fr 1fr;
   gap: $spacing-lg;
   padding: 0 $spacing-lg;
+  span {
+    color: $color-brand;
+  }
+  @media screen and (max-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 
 .content {
@@ -16,8 +25,11 @@
   small {
     color: $color-brand;
   }
-  span {
-    color: $color-brand;
+  @media screen and (max-width: $tablet) {
+    width: 100%;
+    p {
+      margin: $spacing-md 0;
+    }
   }
 }
 
@@ -31,5 +43,10 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-items: center;
+  justify-content: center;
+  @media screen and (max-width: $tablet) {
+    p {
+      margin: $spacing-md 0;
+    }
+  }
 }

@@ -30,7 +30,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
     });
   }
 
-  console.log(isOpen);
+  console.log(state);
 
   return (
     <>
@@ -82,6 +82,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                     const newValue = e.target.value;
                     updateState(newValue, "phone");
                   }}
+                  type="number"
                 />
                 <Input
                   value={state.email}
@@ -91,10 +92,11 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                     updateState(newValue, "email");
                   }}
                   required
+                  type="email"
                 />
                 <div style={{ gridColumn: "span 2" }}>
                   <Input
-                    type="textarea"
+                    use="textarea"
                     value={state.message}
                     label="Message"
                     onChange={(e) => {
