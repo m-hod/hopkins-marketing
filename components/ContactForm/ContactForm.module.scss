@@ -8,7 +8,6 @@
   max-height: 75vh;
   overflow: auto;
   padding: $spacing-lg;
-  margin: $spacing-lg;
   z-index: 10000;
   @include scrollbar;
   span {
@@ -24,6 +23,8 @@
   row-gap: $spacing-sm;
   @media screen and (max-width: $mobile) {
     grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
   }
 }
 

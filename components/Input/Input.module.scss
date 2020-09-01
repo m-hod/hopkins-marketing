@@ -6,7 +6,7 @@
   width: 100%;
   padding: $spacing-sm;
   box-sizing: border-box;
-
+  color: $color-dark-gray;
   &Focused {
     border: 2px solid $color-brand;
   }
@@ -15,6 +15,7 @@
 .textarea {
   min-height: 100px;
   resize: vertical;
+  color: $color-dark-gray;
 }
 
 .label {

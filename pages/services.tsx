@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useLayoutEffect } from "react";
-import * as Page from "../../components/Page/Page";
+import * as Page from "../components/Page/Page";
 import { useRouter } from "next/router";
-import ServiceSection from "../../components/ServiceSection/ServiceSection";
-import useMediaQuery, { tablet } from "../../hooks/useMediaQuery";
+import ServiceSection from "../components/ServiceSection/ServiceSection";
+import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 
-function service() {
+function services() {
   const router = useRouter();
   const media = useMediaQuery();
 
@@ -51,7 +51,7 @@ function service() {
         id="photography"
         title="PHOTOGRAPHY 0.2"
         imageUrl="/images/alexander-dummer-aS4Duj2j7r4-unsplash.jpg"
-        orientation={media.width <= tablet ? "left" : "right"}
+        orientation={media <= tablet ? "left" : "right"}
         content={[
           {
             subtitle: "Weddings",
@@ -92,7 +92,7 @@ function service() {
         id="web"
         title="WEB DESIGN 0.4"
         imageUrl="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.jpg"
-        orientation={media.width <= tablet ? "left" : "right"}
+        orientation={media <= tablet ? "left" : "right"}
         content={[
           {
             subtitle: "Websites",
@@ -115,4 +115,4 @@ function service() {
   );
 }
 
-export default service;
+export default services;

@@ -15,7 +15,7 @@ const useObserver = (reference: string) => {
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.15,
       }
     );
     const target: Element | null = document.querySelector(`#${reference}`);

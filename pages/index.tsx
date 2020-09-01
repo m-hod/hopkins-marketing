@@ -24,7 +24,8 @@ export default function Home() {
       headerColor={isContentVisible ? "white" : "brand"}
     >
       <Head>
-        <title>Create Next App</title>
+        <title>Hopkins Marketing Group</title>
+        <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.hero} id="hero">

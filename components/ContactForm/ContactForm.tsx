@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
@@ -29,8 +29,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
       return newState;
     });
   }
-
-  console.log(state);
 
   return (
     <>

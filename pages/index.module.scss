@@ -111,6 +111,9 @@
   h2 {
     margin: 0;
   }
+  @media screen and (max-width: $desktop) {
+    width: 100%;
+  }
   @media screen and (max-width: $tablet) {
     grid-template-columns: 1fr;
     width: 100%;

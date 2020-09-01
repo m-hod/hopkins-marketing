@@ -8,13 +8,6 @@ export const desktop = 1200;
 function useMediaQuery() {
   const [width, setWidth] = useState(0);
 
-  const breakpoint = useMemo(() => {
-    if (width < desktop) return "desktop";
-    if (width < tablet) return "tablet";
-    if (width < mobile) return "mobile";
-    return "default";
-  }, [width]);
-
   useEffect(() => {
     setWidth(window.innerWidth);
     function resize() {
@@ -26,7 +19,7 @@ function useMediaQuery() {
     };
   }, []);
 
-  return { width: width, breakpoint: breakpoint };
+  return width;
 }
 
 export default useMediaQuery;

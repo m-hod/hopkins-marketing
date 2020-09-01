@@ -7,7 +7,6 @@ import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 
 function About() {
   const media = useMediaQuery();
-  console.log(media.width);
 
   return (
     <Page.Wrapper>
@@ -27,7 +26,7 @@ function About() {
               proident, sunt inpeku culpa qui officia deserunt mollit anim id
               est laborum.
             </p>
-            {media.width < tablet && (
+            {media < tablet && (
               <TeamCard
                 profilePicture="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
                 name="Elliot Hopkins"
@@ -36,7 +35,7 @@ function About() {
                 backgroundImage="/images/mediensturmer-aWf7mjwwJJo-unsplash.jpg"
               />
             )}
-            {media.width >= tablet && (
+            {media >= tablet && (
               <>
                 <p>
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -62,7 +61,7 @@ function About() {
             </p>
           </div>
           <div className={styles.cards}>
-            {media.width >= tablet && (
+            {media >= tablet && (
               <TeamCard
                 profilePicture="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
                 name="Elliot Hopkins"
@@ -71,7 +70,7 @@ function About() {
                 backgroundImage="/images/mediensturmer-aWf7mjwwJJo-unsplash.jpg"
               />
             )}
-            {media.width < tablet && (
+            {media < tablet && (
               <p>
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium poeyi doloremque laudantium, totam rem aperiam,
@@ -92,7 +91,7 @@ function About() {
               description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
               backgroundImage="/images/annie-spratt-QckxruozjRg-unsplash.jpg"
             />
-            {media.width < tablet && (
+            {media < tablet && (
               <p className={styles.emphasis}>
                 Excepteur sint occaecat <span>cupidatat</span> non proident,
                 sunt in culpa qui officia deserunt.
