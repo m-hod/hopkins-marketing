@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
 import Input from "../Input/Input";
+import { sendEmail } from "../../api";
 
 type State = {
   first_name: string;
@@ -52,7 +53,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
               className={styles.formContent}
               onSubmit={(e) => {
                 e.preventDefault();
-                console.log("hi");
+                sendEmail(state);
               }}
             >
               <div className={styles.inputsGrid}>
