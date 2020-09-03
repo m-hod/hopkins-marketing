@@ -2,18 +2,23 @@ import React from "react";
 import { IconType } from "react-icons/lib";
 import Link from "next/link";
 import styles from "./Client.module.scss";
+import Image from "../Image/Image";
 
 function Client({
   name,
   url,
-  image,
+  webp,
+  fallback,
+  alt,
   socials,
   tags,
   description,
 }: {
   name: string;
   url: string;
-  image: string;
+  webp;
+  fallback: string;
+  alt?: string;
   socials: {
     url: string;
     icon: IconType;
@@ -23,9 +28,11 @@ function Client({
 }) {
   return (
     <div className={styles.container}>
-      <div
-        className={styles.image}
-        style={{ backgroundImage: `url(${image})` }}
+      <Image
+        webp={webp}
+        fallback={fallback}
+        alt={alt}
+        containerStyles={styles.image}
       />
       <div className={styles.content}>
         <div className={styles.contentGrid}>

@@ -1,28 +1,45 @@
 import React from "react";
 import styles from "./TeamCard.module.scss";
+import Image from "../Image/Image";
 
 function TeamCard({
-  profilePicture,
   name,
   role,
   description,
-  backgroundImage,
+  pfpwebp,
+  pfpFallback,
+  pfpAlt,
+  webp,
+  fallback,
+  alt,
 }: {
-  profilePicture: string;
   name: string;
   role: string;
   description: string;
-  backgroundImage: string;
+  pfpwebp: string;
+  pfpFallback: string;
+  pfpAlt?: string;
+  webp: string;
+  fallback: string;
+  alt?: string;
 }) {
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
+      <Image
+        webp={webp}
+        fallback={fallback}
+        alt={alt}
+        containerStyles={styles.image}
+      />
       <div className={styles.content}>
-        <div
-          className={styles.profile}
-          style={{ backgroundImage: `url(${profilePicture})` }}
+        <Image
+          webp={pfpwebp}
+          fallback={pfpFallback}
+          alt={pfpAlt}
+          containerStyles={styles.profile}
         />
         <div className={styles.titles}>
           <p>{name}</p>

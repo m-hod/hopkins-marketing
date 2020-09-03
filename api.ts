@@ -8,18 +8,17 @@ type Form = {
   message: string;
 };
 
-// axios.defaults.headers.post["Content-Type"] =
-//   "application/x-www-form-urlencoded";
+axios.defaults.headers.post["Content-Type"] =
+  "application/x-www-form-urlencoded";
 axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
 
 export const sendEmail = async (formData: Form) => {
   const response = await axios.post(
     "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
-    {}
-    // {
-    //   ...formData,
-    //   source: "michaelcshodges@gmail.com",
-    // }
+    JSON.stringify({
+      ...formData,
+      source: "michaelcshodges@gmail.com",
+    })
   );
   return response;
 };

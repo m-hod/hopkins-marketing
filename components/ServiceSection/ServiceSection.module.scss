@@ -40,9 +40,7 @@
   min-height: calc(100vh - 75px);
   width: 100%;
   display: block;
-  background-size: cover;
-  background-position: center;
-  background-color: $color-image-placeholder;
+  background-color: $color-light-gray;
   position: relative;
   &::before {
     content: "";

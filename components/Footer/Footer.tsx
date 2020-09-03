@@ -47,7 +47,10 @@ function Footer() {
             <LinkItem to="" icon={<FaTwitter />} />
             <LinkItem to="" icon={<FaFacebookF />} />
           </div>
-          <small>© Hopkins Marketing 2020</small>
+          <div className={styles.credits}>
+            <small>© Hopkins Marketing 2020</small>
+            <small>Created by Michael Hodges</small>
+          </div>
         </div>
       </div>
     </footer>
@@ -77,7 +80,7 @@ function LinkItem({
     : {};
 
   return (
-    <Link href={{ pathname: to, query: { service: query } }}>
+    <Link href={query ? { pathname: to, query: { service: query } } : to}>
       <a {...externalProps} className={styles.link}>
         {icon} {label}
       </a>

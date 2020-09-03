@@ -45,9 +45,10 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
           <div className={styles.container}>
             <h1>Contact us</h1>
             <h3>
-              Excepteur sint occaecat <span>cupidatat</span> non proident, sunt
-              in culpa qui official. Excepteur sint occaecat{" "}
-              <span>cupidatat</span> non proident, sunt in culpa qui official.{" "}
+              Whether you’ve got a burning <span>idea</span> you want to make
+              reality, a <span>business</span> that you’re ready to take to the
+              next level, or simply have a question about <span>marketing</span>
+              , we’re ready and waiting.
             </h3>
             <form
               className={styles.formContent}

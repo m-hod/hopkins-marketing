@@ -3,6 +3,7 @@ import * as Page from "../components/Page/Page";
 import { useRouter } from "next/router";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
+import Head from "next/head";
 
 function services() {
   const router = useRouter();
@@ -24,10 +25,17 @@ function services() {
 
   return (
     <Page.Wrapper headerMode="sticky">
+      <Head>
+        <title>Services - Hopkins Marketing Group</title>
+        <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <ServiceSection
         id="media"
         title="MEDIA MANAGEMENT 0.1"
-        imageUrl="/images/jakob-owens-WUmb_eBrpjs-unsplash.jpg"
+        webp="/images/jakob-owens-WUmb_eBrpjs-unsplash.webp"
+        fallback="/images/jakob-owens-WUmb_eBrpjs-unsplash.jpg"
+        alt="Media Management"
         orientation="left"
         content={[
           {
@@ -50,7 +58,9 @@ function services() {
       <ServiceSection
         id="photography"
         title="PHOTOGRAPHY 0.2"
-        imageUrl="/images/alexander-dummer-aS4Duj2j7r4-unsplash.jpg"
+        webp="/images/alexander-dummer-aS4Duj2j7r4-unsplash.webp"
+        fallback="/images/alexander-dummer-aS4Duj2j7r4-unsplash.jpg"
+        alt="Photography"
         orientation={media <= tablet ? "left" : "right"}
         content={[
           {
@@ -68,7 +78,9 @@ function services() {
       <ServiceSection
         id="videography"
         title="VIDEOGRAPHY 0.3"
-        imageUrl="/images/jason-jarrach-NL6pn-d-MnY-unsplash.jpg"
+        webp="/images/jason-jarrach-NL6pn-d-MnY-unsplash.webp"
+        fallback="/images/jason-jarrach-NL6pn-d-MnY-unsplash.jpg"
+        alt="Videography"
         orientation="left"
         content={[
           {
@@ -91,7 +103,9 @@ function services() {
       <ServiceSection
         id="web"
         title="WEB DESIGN 0.4"
-        imageUrl="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.jpg"
+        webp="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.webp"
+        fallback="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.jpg"
+        alt="Web Design"
         orientation={media <= tablet ? "left" : "right"}
         content={[
           {

@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./ServiceSection.module.scss";
+import Image from "../Image/Image";
 
 function ServiceSection({
   title,
   content,
-  imageUrl,
+  webp,
+  fallback,
+  alt,
   orientation,
   id,
 }: {
@@ -13,7 +16,9 @@ function ServiceSection({
     subtitle: string;
     description: string;
   }[];
-  imageUrl: string;
+  webp: string;
+  fallback: string;
+  alt?: string;
   orientation: "left" | "right";
   id: string;
 }) {
@@ -28,9 +33,12 @@ function ServiceSection({
           </div>
         ))}
       </div>
-      <div
-        className={styles.image}
-        style={{ backgroundImage: `url(${imageUrl})`, gridArea: orientation }}
+      <Image
+        webp={webp}
+        fallback={fallback}
+        alt={alt}
+        containerStyles={styles.image}
+        style={{ gridArea: orientation }}
       />
     </div>
   );

@@ -3,16 +3,21 @@ import styles from "./ServiceCard.module.scss";
 import classnames from "classnames";
 import { FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
+import Image from "../Image/Image";
 
 function ServiceCard({
   title,
-  background,
+  webp,
+  fallback,
+  alt,
   to,
   query,
   services,
 }: {
   title: string;
-  background: string;
+  webp: string;
+  fallback: string;
+  alt?: string;
   to: string;
   query: string;
   services: string[];
@@ -32,7 +37,6 @@ function ServiceCard({
       >
         <div>
           <h3>{title}</h3>
-
           <div
             className={classnames(
               styles.content,
@@ -57,9 +61,11 @@ function ServiceCard({
             isExpanded && styles.overlayExpanded
           )}
         />
-        <div
-          className={styles.backgroundImage}
-          style={{ backgroundImage: `url(${background})` }}
+        <Image
+          webp={webp}
+          fallback={fallback}
+          alt={alt}
+          containerStyles={styles.backgroundImageContainer}
         />
       </div>
     </Link>

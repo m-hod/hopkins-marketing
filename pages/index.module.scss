@@ -6,18 +6,16 @@
   display: flex;
   justify-content: center;
   position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background-image: url("/images/hunters-race-MYbhN8KaaEc-unsplash.webp"),
-      url("/images/hunters-race-MYbhN8KaaEc-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    background-color: $color-image-placeholder;
+}
+
+.heroImage {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+  img {
     filter: brightness(50%) contrast(95%);
-    z-index: -2;
+    background-color: $color-image-placeholder;
   }
 }
 
@@ -95,6 +93,7 @@
   margin: $spacing-lg 0;
   display: flex;
   justify-content: center;
+  // content-visibility: auto;
   &ExtraPadding {
     padding: $spacing-xl 0;
   }

@@ -10,7 +10,11 @@ function About() {
 
   return (
     <Page.Wrapper>
-      <Head>test</Head>
+      <Head>
+        <title>About - Hopkins Marketing Group</title>
+        <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Page.Content>
         <div className={styles.container}>
           <div className={styles.content}>
@@ -28,11 +32,14 @@ function About() {
             </p>
             {media < tablet && (
               <TeamCard
-                profilePicture="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+                pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
+                pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+                pfpAlt="Elliot Hopkins"
                 name="Elliot Hopkins"
                 role="Founder & CEO"
                 description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
-                backgroundImage="/images/mediensturmer-aWf7mjwwJJo-unsplash.jpg"
+                webp="/images/annie-spratt-QckxruozjRg-unsplash.webp"
+                fallback="/images/annie-spratt-QckxruozjRg-unsplash.jpg"
               />
             )}
             {media >= tablet && (
@@ -50,24 +57,27 @@ function About() {
                   magnam aliqueam quaerat voluptatem.
                 </p>
                 <p className={styles.emphasis}>
-                  Excepteur sint occaecat <span>cupidatat</span> non proident,
-                  sunt in culpa qui officia deserunt.
+                  Solutions you can <span>understand.</span> Know where your
+                  business is going.
                 </p>
               </>
             )}
             <p className={styles.emphasis}>
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia <span>deserunt.</span>
+              Excepteur sint occaecat <span>cupidatat</span> non proident, sunt
+              in culpa qui officia deserunt.
             </p>
           </div>
           <div className={styles.cards}>
             {media >= tablet && (
               <TeamCard
-                profilePicture="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+                pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
+                pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+                pfpAlt="Elliot Hopkins"
                 name="Elliot Hopkins"
                 role="Founder & CEO"
                 description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
-                backgroundImage="/images/mediensturmer-aWf7mjwwJJo-unsplash.jpg"
+                webp="/images/annie-spratt-QckxruozjRg-unsplash.webp"
+                fallback="/images/annie-spratt-QckxruozjRg-unsplash.jpg"
               />
             )}
             {media < tablet && (
@@ -85,16 +95,19 @@ function About() {
               </p>
             )}
             <TeamCard
-              profilePicture="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+              pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
+              pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
+              pfpAlt="Elliot Hopkins"
               name="Elliot Hopkins"
               role="Founder & CEO"
               description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
-              backgroundImage="/images/annie-spratt-QckxruozjRg-unsplash.jpg"
+              webp="/images/mediensturmer-aWf7mjwwJJo-unsplash.webp"
+              fallback="/images/mediensturmer-aWf7mjwwJJo-unsplash.jpg"
             />
             {media < tablet && (
               <p className={styles.emphasis}>
-                Excepteur sint occaecat <span>cupidatat</span> non proident,
-                sunt in culpa qui officia deserunt.
+                Solutions you can <span>understand.</span> Know where your
+                business is going.
               </p>
             )}
           </div>
