@@ -3,7 +3,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
 import Input from "../Input/Input";
-import { sendEmail } from "../../api";
+import { fetchAPI, sendEmail } from "../../api";
 
 type State = {
   first_name: string;
@@ -54,11 +54,15 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
               className={styles.formContent}
               onSubmit={(e) => {
                 e.preventDefault();
-                sendEmail(state);
+                const formData = new FormData();
+                formData.append("first_name", state.first_name);
+                // fetchAPI(formData);
+                sendEmail(formData);
               }}
             >
               <div className={styles.inputsGrid}>
                 <Input
+                  name="first_name"
                   value={state.first_name}
                   label="First Name"
                   onChange={(e) => {
@@ -68,6 +72,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   required
                 />
                 <Input
+                  name="last_name"
                   value={state.last_name}
                   label="Last Name"
                   onChange={(e) => {
@@ -76,6 +81,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   }}
                 />
                 <Input
+                  name="phone"
                   value={state.phone}
                   label="Phone"
                   onChange={(e) => {
@@ -85,6 +91,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   type="number"
                 />
                 <Input
+                  name="email"
                   value={state.email}
                   label="Email Address"
                   onChange={(e) => {
@@ -96,6 +103,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                 />
                 <div style={{ gridColumn: "span 2" }}>
                   <Input
+                    name="message"
                     use="textarea"
                     value={state.message}
                     label="Message"
