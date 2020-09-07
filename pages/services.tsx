@@ -4,10 +4,13 @@ import { useRouter } from "next/router";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 import Head from "next/head";
+import { detect } from "detect-browser";
 
 function services() {
   const router = useRouter();
   const media = useMediaQuery();
+  const browser = detect();
+  const browserExceptions = browser.name === "chrome";
 
   useEffect(() => {
     if (router.query.service) {
@@ -31,6 +34,7 @@ function services() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ServiceSection
+        browserExceptions={browserExceptions}
         id="media"
         title="MEDIA MANAGEMENT 0.1"
         webp="/images/jakob-owens-WUmb_eBrpjs-unsplash.webp"
@@ -56,6 +60,7 @@ function services() {
         ]}
       />
       <ServiceSection
+        browserExceptions={browserExceptions}
         id="photography"
         title="PHOTOGRAPHY 0.2"
         webp="/images/alexander-dummer-aS4Duj2j7r4-unsplash.webp"
@@ -76,6 +81,7 @@ function services() {
         ]}
       />
       <ServiceSection
+        browserExceptions={browserExceptions}
         id="videography"
         title="VIDEOGRAPHY 0.3"
         webp="/images/jason-jarrach-NL6pn-d-MnY-unsplash.webp"
@@ -101,6 +107,7 @@ function services() {
         ]}
       />
       <ServiceSection
+        browserExceptions={browserExceptions}
         id="web"
         title="WEB DESIGN 0.4"
         webp="/images/karl-pawlowicz-QUHuwyNgSA0-unsplash.webp"

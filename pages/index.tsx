@@ -52,7 +52,7 @@ export default function Home() {
         <Image
           webp="/images/hunters-race-MYbhN8KaaEc-unsplash.webp"
           fallback="/images/hunters-race-MYbhN8KaaEc-unsplash.jpg"
-          alt="Hopkins Marketing Group"
+          alt=""
           containerStyles={styles.heroImage}
         />
       </div>

@@ -10,6 +10,7 @@ function ServiceSection({
   alt,
   orientation,
   id,
+  browserExceptions,
 }: {
   title: string;
   content: {
@@ -21,6 +22,7 @@ function ServiceSection({
   alt?: string;
   orientation: "left" | "right";
   id: string;
+  browserExceptions?: boolean;
 }) {
   return (
     <div className={styles.container} id={id}>
@@ -39,6 +41,7 @@ function ServiceSection({
         alt={alt}
         containerStyles={styles.image}
         style={{ gridArea: orientation }}
+        useBackground={browserExceptions}
       />
     </div>
   );
