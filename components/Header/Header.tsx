@@ -54,11 +54,12 @@ function Header({
           (media < mobile ? (
             <>
               <img
-                src="/images/logo.svg"
+                src="images/Logo.svg"
                 className={styles.logo}
                 onClick={() => {
                   setIsExpanded(!isExpanded);
                 }}
+                alt=""
               />
               <div className={styles.contactContainer}>
                 <ContactForm buttonColor={color} />
@@ -67,7 +68,7 @@ function Header({
           ) : (
             <Link href="/">
               <a>
-                <img src="/images/logo.svg" className={styles.logo} />
+                <img src="images/Logo.svg" className={styles.logo} alt="" />
               </a>
             </Link>
           ))}

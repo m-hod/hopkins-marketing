@@ -34,7 +34,6 @@ function About() {
               <TeamCard
                 pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
                 pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
-                pfpAlt="Elliot Hopkins"
                 name="Elliot Hopkins"
                 role="Founder & CEO"
                 description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
@@ -72,7 +71,6 @@ function About() {
               <TeamCard
                 pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
                 pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
-                pfpAlt="Elliot Hopkins"
                 name="Elliot Hopkins"
                 role="Founder & CEO"
                 description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
@@ -97,7 +95,6 @@ function About() {
             <TeamCard
               pfpwebp="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.webp"
               pfpFallback="/images/jose-alejandro-cuffia-k1LNP6dnyAE-unsplash.jpg"
-              pfpAlt="Elliot Hopkins"
               name="Elliot Hopkins"
               role="Founder & CEO"
               description="Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore. Natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore."
