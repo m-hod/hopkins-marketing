@@ -1,5 +1,3 @@
-import axios from "axios";
-
 type Form = {
   first_name: string;
   last_name: string;
@@ -9,42 +7,61 @@ type Form = {
 };
 
 type Email = {
-  fist_name: string;
-  last_name: string;
-  phone: number;
   receiver: string;
   message: string;
   sender: string;
   subject: string;
-};
-// axios.defaults.headers.common["Content-Type"] =
-//   "application/x-www-form-urlencoded";
-// axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-
-export const sendEmail = async (formData: FormData) => {
-  const response = await axios.post(
-    "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail"
-  );
-  return response;
+  reply_to?: string;
 };
 
-export async function fetchAPI(formData: FormData) {
-  const res = await fetch(
-    "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Access-Control-Allow-Origin": "[POST, OPTIONS]",
-      },
-      body: JSON.stringify(formData),
+export async function sendEmail(data: Form) {
+  const contacteePayload: Email = {
+    receiver: data.email,
+    sender: "michaelcshodges@gmail.com",
+    subject: "Thank you for contacting Hopkins Marketing Group",
+    message:
+      "Thanks for your message. This email is just to let you know we've received your message and will be in touch shortly. We're looking forward to working with you!",
+  };
+
+  const companyPayload: Email = {
+    receiver: "michaelcshodges@gmail.com",
+    reply_to: data.email,
+    sender: "michaelcshodges@gmail.com",
+    subject: "New correspondence received",
+    message: `New correspondence received from ${data.first_name} ${data.last_name}. Phone: ${data.phone}. Email: ${data.email}. Message: ${data.message}`,
+  };
+
+  try {
+    // Confirmation email sent to contactee
+    const contactRes = await fetch(
+      "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify(contacteePayload),
+      }
+    );
+    try {
+      // Email sent to company with contactee details and message
+      const companyRes = await fetch(
+        "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+          },
+          body: JSON.stringify(companyPayload),
+        }
+      );
+      return { contact: contactRes.json(), company: companyRes.json() };
+    } catch (e) {
+      return e;
     }
-  );
-
-  const json = await res.json();
-  if (json.errors) {
-    console.error(json.errors);
-    throw new Error("Failed to fetch API");
+  } catch (e) {
+    return e;
   }
-  return json.data;
 }

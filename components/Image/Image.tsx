@@ -16,7 +16,6 @@ function Image({
   containerStyles?: string;
   useBackground?: boolean;
 } & React.HTMLProps<HTMLPictureElement>) {
-  console.log(useBackground);
   return useBackground ? (
     <div
       className={classnames(
