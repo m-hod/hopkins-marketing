@@ -30,6 +30,10 @@ function services() {
     <Page.Wrapper headerMode="sticky">
       <Head>
         <title>Services - Hopkins Marketing Group</title>
+        <meta
+          name="description"
+          content="Hopkins Marketing Group marketing services include branding, social media management, photography for weddings and graduations, videography for live events, music videos, and general filming and editing services, and web design services for static websites, server hosting, and SEO (search engine optimisation)."
+        />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

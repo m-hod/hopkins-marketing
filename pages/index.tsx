@@ -26,6 +26,10 @@ export default function Home() {
     >
       <Head>
         <title>Hopkins Marketing Group</title>
+        <meta
+          name="description"
+          content="Hopkins Marketing Group is a marketing solutions company based out of Hamilton, New Zealand. We work closely with our clients to bring their business to a wider audience, including branding, media management, multimedia services, and web design."
+        />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -65,13 +69,13 @@ export default function Home() {
             <ContentSection
               heading={
                 <>
-                  Excepteur sint occaecat <span>cupidatat</span> non proident,
-                  sunt in culpa qui officia
+                  Bring your ideas to <span>life</span>, to <span>people</span>,
+                  and to <span>New Zealand</span>.
                 </>
               }
               contents={[
-                "Lorem ipsum dolor sit amet, consectetur adipisifwcing elit, sed do eiusmod tempor incididunt ut labore et dolore roipi magna aliqua. Ut enim ad minim veeniam, quis nostruklad exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in tufpoy voluptate velit esse cillum dolore eu fugiat nulla parieratur. Excepteur sint.",
-                "Culpa qui officia deserunt mollit anim id est laborum. Sed ut  perspiciatis unde omnis iste natus error sit voluptartem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi ropeior architecto beatae vitae dicta sunt explicabo.",
+                "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that stand out in their community and New Zealand wide. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business on a national scale.",
+                "Whether you’re starting your business from scratch or looking to take things to the next level, we’re here to help. From building brands to networking with clients to developing a public presence, we’ve got you covered for all your marketing needs.",
               ]}
             />
             <QuoteCard

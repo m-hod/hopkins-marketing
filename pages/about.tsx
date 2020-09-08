@@ -12,6 +12,10 @@ function About() {
     <Page.Wrapper>
       <Head>
         <title>About - Hopkins Marketing Group</title>
+        <meta
+          name="description"
+          content="Hopkins Marketing Group was built from the ground up by CEO Elliot Hopkins. Through his personal experience in the process he offers a unique perspective on marketing and building brands for businesses to help bring them to the wider public."
+        />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
