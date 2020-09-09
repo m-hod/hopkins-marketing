@@ -66,8 +66,8 @@ function About() {
               </>
             )}
             <p className={styles.emphasis}>
-              Excepteur sint occaecat <span>cupidatat</span> non proident, sunt
-              in culpa qui officia deserunt.
+              Local kiwi’s. Global ideas. Let’s bring your business to the{" "}
+              <span>world</span>.
             </p>
           </div>
           <div className={styles.cards}>

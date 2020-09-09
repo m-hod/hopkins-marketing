@@ -37,10 +37,6 @@ export async function sendEmail(data: Form) {
       "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-        },
         body: JSON.stringify(contacteePayload),
       }
     );
@@ -50,18 +46,14 @@ export async function sendEmail(data: Form) {
         "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*",
-          },
           body: JSON.stringify(companyPayload),
         }
       );
       return { contact: contactRes.json(), company: companyRes.json() };
     } catch (e) {
-      return e;
+      throw new Error(e);
     }
   } catch (e) {
-    return e;
+    throw new Error(e);
   }
 }

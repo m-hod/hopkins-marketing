@@ -11,16 +11,16 @@ function Button(
     loading?: boolean;
   } & HTMLAttributes<HTMLButtonElement>
 ) {
-  const { color = "white", title, action, ...rest } = props;
+  const { color = "white", title, action, loading, ...rest } = props;
   return (
     <button
+      {...rest}
       onClick={() => {
         action && action();
       }}
       className={classnames(styles.button, styles[color])}
-      {...rest}
     >
-      {props.loading ? <CircularProgress size={18} color="inherit" /> : title}
+      {loading ? <CircularProgress size={18} color="inherit" /> : title}
     </button>
   );
 }

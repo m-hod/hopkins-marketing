@@ -131,8 +131,7 @@ export default function Home() {
               centered
               heading={
                 <>
-                  Local kiwi’s. Global ideas. Let’s bring your{" "}
-                  <span>business</span> to the world.
+                  Local business doesn't mean local <span>ideas</span>.
                 </>
               }
               contents={[
