@@ -28,9 +28,9 @@ function services() {
 
   console.log(router.query.service);
 
-  //@ts-ignore
   const serviceName = router.query.service
-    ? router.query.service.charAt(0).toUpperCase() +
+    ? //@ts-ignore
+      router.query.service.charAt(0).toUpperCase() +
       router.query.service.slice(1)
     : undefined;
 
