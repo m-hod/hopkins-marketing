@@ -13,8 +13,12 @@ function Footer() {
           title="CONTACT US"
           content={
             <>
-              <p>+64 027 123 9878</p>
-              <p>hopkinsmarketing@gmail.com</p>
+              <p>+64 021 111 1111</p>
+              <LinkItem
+                external
+                to="mailto:hopkinsmarketinggroup@gmail.com"
+                label="hopkinsmarketinggroup@gmail.com"
+              />
               <div style={{ marginTop: 12 }}>
                 <ContactForm buttonColor="white" />
               </div>
@@ -43,9 +47,13 @@ function Footer() {
         <div />
         <div className={styles.socials}>
           <div className={styles.socialsLinks}>
-            <LinkItem to="" icon={<FaInstagram />} />
-            <LinkItem to="" icon={<FaTwitter />} />
-            <LinkItem to="" icon={<FaFacebookF />} />
+            {/* <LinkItem to="" icon={<FaInstagram />} /> */}
+            {/* <LinkItem to="" icon={<FaTwitter />} /> */}
+            <LinkItem
+              external
+              to="https://www.facebook.com/HMGNZ"
+              icon={<FaFacebookF />}
+            />
           </div>
           <div className={styles.credits}>
             <small>© Hopkins Marketing 2020</small>

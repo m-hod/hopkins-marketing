@@ -32,3 +32,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# serverless
+# package directories
+/serverless/node_modules
+/serverless/jspm_packages
+
+# Serverless directories
+/serverless/.serverless
+
+# Webpack directories
+/serverless/.webpack

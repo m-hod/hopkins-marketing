@@ -14,7 +14,12 @@ function About() {
         <title>About - Hopkins Marketing Group</title>
         <meta
           name="description"
+          property="og:description"
           content="Hopkins Marketing Group was built from the ground up by CEO Elliot Hopkins. Through his personal experience in the process he offers a unique perspective on marketing and building brands for businesses to help bring them to the wider public."
+        />
+        <meta
+          name="keywords"
+          content="hopkins, marketing, nz, new zealand, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
         />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />

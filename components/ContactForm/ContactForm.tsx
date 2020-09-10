@@ -155,7 +155,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                     {status === "error" && (
                       <p>
                         Oops! Looks like something went wrong. Please try again,
-                        or feel free to give us a call on 023213102
+                        or feel free to give us a call on +64 021 111 1111.
                       </p>
                     )}
                   </div>

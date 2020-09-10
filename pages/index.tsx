@@ -28,7 +28,12 @@ export default function Home() {
         <title>Hopkins Marketing Group</title>
         <meta
           name="description"
+          property="og:description"
           content="Hopkins Marketing Group is a marketing solutions company based out of Hamilton, New Zealand. We work closely with our clients to bring their business to a wider audience, including branding, media management, multimedia services, and web design."
+        />
+        <meta
+          name="keywords"
+          content="hopkins, marketing, nz, new zealand, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
         />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />

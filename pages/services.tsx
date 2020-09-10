@@ -32,7 +32,12 @@ function services() {
         <title>Services - Hopkins Marketing Group</title>
         <meta
           name="description"
+          property="og:description"
           content="Hopkins Marketing Group marketing services include branding, social media management, photography for weddings and graduations, videography for live events, music videos, and general filming and editing services, and web design services for static websites, server hosting, and SEO (search engine optimisation)."
+        />
+        <meta
+          name="keywords"
+          content="hopkins, marketing, nz, new zealand, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
         />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
