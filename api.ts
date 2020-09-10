@@ -17,16 +17,16 @@ type Email = {
 export async function sendEmail(data: Form) {
   const contacteePayload: Email = {
     receiver: data.email,
-    sender: "michaelcshodges@gmail.com",
+    sender: "hopkinsmarketinggroup@gmail.com",
     subject: "Thank you for contacting Hopkins Marketing Group",
     message:
       "Thanks for your message. This email is just to let you know we've received your message and will be in touch shortly. We're looking forward to working with you!",
   };
 
   const companyPayload: Email = {
-    receiver: "michaelcshodges@gmail.com",
+    receiver: "hopkinsmarketinggroup@gmail.com",
     reply_to: data.email,
-    sender: "michaelcshodges@gmail.com",
+    sender: "hopkinsmarketinggroup@gmail.com",
     subject: "New correspondence received",
     message: `New correspondence received from ${data.first_name} ${data.last_name}. Phone: ${data.phone}. Email: ${data.email}. Message: ${data.message}`,
   };
