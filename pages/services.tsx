@@ -26,10 +26,21 @@ function services() {
     }
   }, [router]);
 
+  console.log(router.query.service);
+
+  //@ts-ignore
+  const serviceName = router.query.service
+    ? router.query.service.charAt(0).toUpperCase() +
+      router.query.service.slice(1)
+    : undefined;
+
   return (
     <Page.Wrapper headerMode="sticky">
       <Head>
-        <title>Services - Hopkins Marketing Group</title>
+        <title>
+          Services - {serviceName ? `${serviceName} -` : undefined} Hopkins
+          Marketing Group
+        </title>
         <meta
           name="description"
           property="og:description"
