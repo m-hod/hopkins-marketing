@@ -140,7 +140,7 @@ export default function Home() {
                 </>
               }
               contents={[
-                "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that won’t just stand out in the local community, but even on the world stage. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business in New Zealand and around the globe.",
+                // "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that won’t just stand out in the local community, but even on the world stage. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business in New Zealand and around the globe.",
                 "With our base of satisfied clients growing day by day, we’re eager to continue providing optimal results for all your marketing needs at an unbeatable budget. Just check out some of our clients below and see the results for yourself!",
               ]}
             />
