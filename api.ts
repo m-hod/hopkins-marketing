@@ -15,13 +15,13 @@ type Email = {
 };
 
 export async function sendEmail(data: Form) {
-  const contacteePayload: Email = {
-    receiver: data.email,
-    sender: "hopkinsmarketinggroup@gmail.com",
-    subject: "Thank you for contacting Hopkins Marketing Group",
-    message:
-      "Thanks for your message. This email is just to let you know we've received your message and will be in touch shortly. We're looking forward to working with you!",
-  };
+  // const contacteePayload: Email = {
+  //   receiver: data.email,
+  //   sender: "hopkinsmarketinggroup@gmail.com",
+  //   subject: "Thank you for contacting Hopkins Marketing Group",
+  //   message:
+  //     "Thanks for your message. This email is just to let you know we've received your message and will be in touch shortly. We're looking forward to working with you!",
+  // };
 
   const companyPayload: Email = {
     receiver: "hopkinsmarketinggroup@gmail.com",
@@ -33,13 +33,13 @@ export async function sendEmail(data: Form) {
 
   try {
     // Confirmation email sent to contactee
-    const contactRes = await fetch(
-      "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
-      {
-        method: "POST",
-        body: JSON.stringify(contacteePayload),
-      }
-    );
+    // const contactRes = await fetch(
+    //   "https://vxkres7ttj.execute-api.ap-southeast-2.amazonaws.com/dev/sendEmail",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify(contacteePayload),
+    //   }
+    // );
     try {
       // Email sent to company with contactee details and message
       const companyRes = await fetch(
@@ -49,7 +49,10 @@ export async function sendEmail(data: Form) {
           body: JSON.stringify(companyPayload),
         }
       );
-      return { contact: contactRes.json(), company: companyRes.json() };
+      return {
+        // contact: contactRes.json(),
+        company: companyRes.json(),
+      };
     } catch (e) {
       throw new Error(e);
     }
