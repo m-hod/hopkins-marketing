@@ -15,8 +15,11 @@ import classnames from "classnames";
 import Client from "../components/Client/Client";
 import useObserver from "../hooks/useObserver";
 import Image from "../components/Image/Image";
+import { baseUrl } from "../contants";
+import Axios from "axios";
 
-export default function Home() {
+function Home({ props }: { props: any }) {
+  console.log(props);
   const { isContentVisible } = useObserver("hero");
 
   return (
@@ -70,8 +73,9 @@ export default function Home() {
           className={classnames(styles.section, styles.sectionExtraPadding)}
           style={{ paddingTop: 0 }}
         >
-          <div className={styles.sectionGrid}>
+          <div className={styles.sectionSlim}>
             <ContentSection
+              centered
               heading={
                 <>
                   Bring your ideas to <span>life</span>, to <span>people</span>,
@@ -82,12 +86,6 @@ export default function Home() {
                 "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that stand out in their community and New Zealand wide. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business on a national scale.",
                 "Whether you’re starting your business from scratch or looking to take things to the next level, we’re here to help. From building brands to networking with clients to developing a public presence, we’ve got you covered for all your marketing needs.",
               ]}
-            />
-            <QuoteCard
-              quote={
-                "Clarity, communication, consistency. Your brand is important to you, and being confident that your marketing is in line with your ideas is vital. We understand, and we’re with you 100% of the way."
-              }
-              author="CEO - Elliot Hopkins"
             />
           </div>
         </div>
@@ -185,3 +183,13 @@ export default function Home() {
     </Page.Wrapper>
   );
 }
+
+// export async function getStaticProps() {
+//   const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-home`);
+//   console.log(res.data);
+//   return {
+//     props: res.data,
+//   };
+// }
+
+export default Home;
