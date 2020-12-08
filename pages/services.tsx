@@ -7,8 +7,10 @@ import { detect } from "detect-browser";
 import Axios from "axios";
 import { baseUrl } from "../contants";
 import { Service } from "../types";
+import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 
 function services({ sections }: { sections: Service[] }) {
+  const media = useMediaQuery();
   const router = useRouter();
   const browser = detect();
   const browserExceptions = browser.name === "chrome";
@@ -61,7 +63,10 @@ function services({ sections }: { sections: Service[] }) {
           webp=""
           fallback={section.image.url}
           alt={section.title}
-          orientation={i % 2 === 0 ? "right" : "left"}
+          orientation={(() => {
+            if (media <= tablet) return "left";
+            return i % 2 === 0 ? "right" : "left";
+          })()}
           content={section.content}
         />
       ))}
