@@ -1,17 +1,16 @@
 import React from "react";
 import styles from "./Image.module.scss";
 import classnames from "classnames";
+import { baseUrl } from "../../contants";
 
 function Image({
-  webp,
-  fallback,
+  url,
   alt,
   containerStyles,
   useBackground,
   ...rest
 }: {
-  webp: string;
-  fallback: string;
+  url: string;
   alt: string;
   containerStyles?: string;
   useBackground?: boolean;
@@ -24,14 +23,18 @@ function Image({
       )}
       style={{
         ...rest.style,
-        backgroundImage: `url(${fallback})`,
+        backgroundImage: `url(${baseUrl}${url})`,
       }}
     />
   ) : (
     <picture className={classnames(containerStyles)} {...rest}>
       <>
-        <source srcSet={webp} type="image/webp" />
-        <img src={fallback} className={styles.backgroundImage} alt={alt} />
+        {/* <source srcSet={webp} type="image/webp" /> */}
+        <img
+          src={`${baseUrl}${url}`}
+          className={styles.backgroundImage}
+          alt={alt}
+        />
       </>
     </picture>
   );

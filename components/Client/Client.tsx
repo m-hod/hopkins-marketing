@@ -7,8 +7,7 @@ import Image from "../Image/Image";
 function Client({
   name,
   url,
-  webp,
-  fallback,
+  imageUrl,
   alt,
   socials,
   tags,
@@ -16,8 +15,7 @@ function Client({
 }: {
   name: string;
   url: string;
-  webp;
-  fallback: string;
+  imageUrl: string;
   alt?: string;
   socials: {
     url: string;
@@ -28,12 +26,7 @@ function Client({
 }) {
   return (
     <div className={styles.container}>
-      <Image
-        webp={webp}
-        fallback={fallback}
-        alt={alt}
-        containerStyles={styles.image}
-      />
+      <Image url={imageUrl} alt={alt} containerStyles={styles.image} />
       <div className={styles.content}>
         <div className={styles.contentGrid}>
           <div className={styles.title}>

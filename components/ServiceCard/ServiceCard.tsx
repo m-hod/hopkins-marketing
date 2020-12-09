@@ -7,16 +7,14 @@ import Image from "../Image/Image";
 
 function ServiceCard({
   title,
-  webp,
-  fallback,
+  imageUrl,
   alt,
   to,
   query,
   services,
 }: {
   title: string;
-  webp: string;
-  fallback: string;
+  imageUrl: string;
   alt?: string;
   to: string;
   query: string;
@@ -62,8 +60,7 @@ function ServiceCard({
           )}
         />
         <Image
-          webp={webp}
-          fallback={fallback}
+          url={imageUrl}
           alt={alt}
           containerStyles={styles.backgroundImageContainer}
         />

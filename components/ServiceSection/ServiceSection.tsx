@@ -5,8 +5,7 @@ import Image from "../Image/Image";
 function ServiceSection({
   title,
   content,
-  webp,
-  fallback,
+  imageUrl,
   alt,
   orientation,
   id,
@@ -17,8 +16,7 @@ function ServiceSection({
     subtitle: string;
     description: string;
   }[];
-  webp: string;
-  fallback: string;
+  imageUrl: string;
   alt?: string;
   orientation: "left" | "right";
   id: string;
@@ -36,8 +34,7 @@ function ServiceSection({
         ))}
       </div>
       <Image
-        webp={webp}
-        fallback={fallback}
+        url={imageUrl}
         alt={alt}
         containerStyles={styles.image}
         style={{ gridArea: orientation }}

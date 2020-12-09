@@ -60,8 +60,7 @@ function services({ sections }: { sections: Service[] }) {
           browserExceptions={browserExceptions}
           id={section.anchor}
           title={section.title}
-          webp=""
-          fallback={section.image.url}
+          imageUrl={section.image.url}
           alt={section.title}
           orientation={(() => {
             if (media <= tablet) return "left";

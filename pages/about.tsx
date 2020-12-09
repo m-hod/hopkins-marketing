@@ -44,13 +44,11 @@ function About({
             <p>{content.sections[0].text}</p>
             {media < tablet && (
               <TeamCard
-                pfpwebp=""
-                pfpFallback={cards[0].profileImage.url}
+                pfpImageUrl={cards[0].profileImage.url}
                 name={cards[0].name}
                 role={cards[0].role}
                 description={cards[0].description}
-                webp=""
-                fallback={cards[0].image.url}
+                imageUrl={cards[0].image.url}
               />
             )}
             {media >= tablet && (
@@ -66,24 +64,20 @@ function About({
           <div className={styles.cards}>
             {media >= tablet && (
               <TeamCard
-                pfpwebp=""
-                pfpFallback={cards[0].profileImage.url}
+                pfpImageUrl={cards[0].profileImage.url}
                 name={cards[0].name}
                 role={cards[0].role}
                 description={cards[0].description}
-                webp=""
-                fallback={cards[0].image.url}
+                imageUrl={cards[0].image.url}
               />
             )}
             {media < tablet && <p>{content.sections[1].text}</p>}
             <TeamCard
-              pfpwebp=""
-              pfpFallback={cards[1].profileImage.url}
+              pfpImageUrl={cards[1].profileImage.url}
               name={cards[1].name}
               role={cards[1].role}
               description={cards[1].description}
-              webp=""
-              fallback={cards[1].image.url}
+              imageUrl={cards[1].image.url}
             />
             {media < tablet && (
               <p className={styles.emphasis}>{parser(quotes[0].description)}</p>

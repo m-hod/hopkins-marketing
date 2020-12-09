@@ -6,21 +6,17 @@ function TeamCard({
   name,
   role,
   description,
-  pfpwebp,
-  pfpFallback,
+  pfpImageUrl,
   pfpAlt,
-  webp,
-  fallback,
+  imageUrl,
   alt,
 }: {
   name: string;
   role: string;
   description: string;
-  pfpwebp: string;
-  pfpFallback: string;
+  pfpImageUrl: string;
   pfpAlt?: string;
-  webp: string;
-  fallback: string;
+  imageUrl: string;
   alt?: string;
 }) {
   return (
@@ -28,16 +24,10 @@ function TeamCard({
       className={styles.container}
       // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <Image
-        webp={webp}
-        fallback={fallback}
-        alt={alt}
-        containerStyles={styles.image}
-      />
+      <Image url={imageUrl} alt={alt} containerStyles={styles.image} />
       <div className={styles.content}>
         <Image
-          webp={pfpwebp}
-          fallback={pfpFallback}
+          url={pfpImageUrl}
           alt={pfpAlt}
           containerStyles={styles.profile}
         />

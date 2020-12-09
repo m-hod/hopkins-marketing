@@ -82,8 +82,7 @@ function Home(props: Props) {
           <FaChevronDown size={30} />
         </div>
         <Image
-          webp=""
-          fallback={`${baseUrl}${props.heroImage.url}`}
+          url={props.heroImage.url}
           alt=""
           containerStyles={styles.heroImage}
         />
@@ -109,8 +108,7 @@ function Home(props: Props) {
             <ServiceCard
               key={_service.id}
               title={_service.title}
-              webp=""
-              fallback={`${baseUrl}${_service.image.url}`}
+              imageUrl={_service.image.url}
               to={_service.link}
               query={_service.anchor}
               alt={_service.title}
@@ -134,8 +132,7 @@ function Home(props: Props) {
             <Client
               name={_client.name}
               url={_client.link}
-              webp=""
-              fallback={`${baseUrl}${_client.image.url}`}
+              imageUrl={_client.image.url}
               alt={_client.name}
               socials={_client.socials
                 .filter((_social) => !!socialsKeyMap[_social.type])
