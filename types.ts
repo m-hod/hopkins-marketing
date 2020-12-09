@@ -15,6 +15,47 @@ export type Image = {
   url: string;
 };
 
+// Home Page
+
+export type Client = {
+  id: number;
+  image: StrapiImage;
+  name: string;
+  link: string;
+  description: string;
+  tags: {
+    id: number;
+    text: string;
+  }[];
+  socials: {
+    id: number;
+    link: string;
+    type: "twitter" | "facebook" | "instagram";
+  }[];
+};
+
+export type HomeSection = {
+  id: number;
+  // as html
+  heading: string;
+  contents: {
+    id: number;
+    text: string;
+  }[];
+};
+
+export type ShortService = {
+  id: number;
+  title: string;
+  link: string;
+  anchor: string;
+  image: StrapiImage;
+  services: {
+    id: number;
+    text: string;
+  }[];
+};
+
 // Service Page
 
 export type Service = {

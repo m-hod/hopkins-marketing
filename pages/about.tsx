@@ -18,7 +18,6 @@ function About({
   quotes: AboutQuote[];
   content: AboutContent;
 }) {
-  console.log(cards, quotes, content);
   const media = useMediaQuery();
 
   return (

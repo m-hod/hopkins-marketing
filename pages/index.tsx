@@ -5,10 +5,8 @@ import {
   FaTwitter,
   FaFacebookF,
   FaInstagram,
-  FaGlobeAsia,
   FaChevronDown,
 } from "react-icons/fa";
-import QuoteCard from "../components/QuoteCard/QuoteCard";
 import ContentSection from "../components/ContentSection/ContentSection";
 import ServiceCard from "../components/ServiceCard/ServiceCard";
 import classnames from "classnames";
@@ -17,9 +15,31 @@ import useObserver from "../hooks/useObserver";
 import Image from "../components/Image/Image";
 import { baseUrl } from "../contants";
 import Axios from "axios";
+import {
+  Client as ClientType,
+  HomeSection,
+  ShortService,
+  StrapiImage,
+} from "../types";
+import parser from "html-react-parser";
+import { IconType } from "react-icons/lib";
 
-function Home({ props }: { props: any }) {
-  console.log(props);
+type Props = {
+  heroImage: StrapiImage;
+  clients: ClientType[];
+  sections: HomeSection[];
+  services: ShortService[];
+};
+
+const socialsKeyMap: {
+  [key in "twitter" | "facebook" | "instagram"]: IconType;
+} = {
+  twitter: FaTwitter,
+  instagram: FaInstagram,
+  facebook: FaFacebookF,
+};
+
+function Home(props: Props) {
   const { isContentVisible } = useObserver("hero");
 
   return (
@@ -62,8 +82,8 @@ function Home({ props }: { props: any }) {
           <FaChevronDown size={30} />
         </div>
         <Image
-          webp="/images/hunters-race-MYbhN8KaaEc-unsplash.webp"
-          fallback="/images/hunters-race-MYbhN8KaaEc-unsplash.jpg"
+          webp=""
+          fallback={`${baseUrl}${props.heroImage.url}`}
           alt=""
           containerStyles={styles.heroImage}
         />
@@ -74,122 +94,70 @@ function Home({ props }: { props: any }) {
           style={{ paddingTop: 0 }}
         >
           <div className={styles.sectionSlim}>
+            {}
             <ContentSection
               centered
-              heading={
-                <>
-                  Bring your ideas to <span>life</span>, to <span>people</span>,
-                  and to <span>New Zealand</span>.
-                </>
-              }
-              contents={[
-                "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that stand out in their community and New Zealand wide. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business on a national scale.",
-                "Whether you’re starting your business from scratch or looking to take things to the next level, we’re here to help. From building brands to networking with clients to developing a public presence, we’ve got you covered for all your marketing needs.",
-              ]}
+              heading={<>{parser(props.sections[0].heading)}</>}
+              contents={props.sections[0].contents.map(
+                (_content) => _content.text
+              )}
             />
           </div>
         </div>
         <div className={classnames(styles.section, styles.cardGrid)}>
-          <ServiceCard
-            title="SOCIAL MEDIA"
-            webp="images/sara-kurfess-6lcT2kRPvnI-unsplash.webp"
-            fallback="images/sara-kurfess-6lcT2kRPvnI-unsplash.jpg"
-            to="/services"
-            query="media"
-            alt="Social Media"
-            services={["Social Media", "Multi Media", "Branding"]}
-          />
-          <ServiceCard
-            title="PHOTOGRAPHY"
-            webp="images/william-bayreuther-hfk6xOjQlFk-unsplash.webp"
-            fallback="images/william-bayreuther-hfk6xOjQlFk-unsplash.jpg"
-            to="/services"
-            query="photography"
-            alt="Photography"
-            services={["Weddings", "Graduations"]}
-          />
-          <ServiceCard
-            title="VIDEOGRAPHY"
-            webp="images/wahid-khene-iKdQCIiSMlQ-unsplash.webp"
-            fallback="images/wahid-khene-iKdQCIiSMlQ-unsplash.jpg"
-            to="/services"
-            query="videography"
-            alt="Videography"
-            services={["Live Events", "Music Videos", "Filming and Editing"]}
-          />
-          <ServiceCard
-            title="WEB DESIGN"
-            webp="images/marvin-meyer-SYTO3xs06fU-unsplash.webp"
-            fallback="images/marvin-meyer-SYTO3xs06fU-unsplash.jpg"
-            to="/services"
-            query="web"
-            alt="Web Design"
-            services={["Websites", "Server Hosting", "SEO"]}
-          />
+          {props.services.map((_service) => (
+            <ServiceCard
+              key={_service.id}
+              title={_service.title}
+              webp=""
+              fallback={`${baseUrl}${_service.image.url}`}
+              to={_service.link}
+              query={_service.anchor}
+              alt={_service.title}
+              services={_service.services.map((__service) => __service.text)}
+            />
+          ))}
         </div>
-
         <div className={classnames(styles.section, styles.sectionExtraPadding)}>
           <div className={styles.sectionSlim}>
             <ContentSection
               centered
-              heading={
-                <>
-                  Local business doesn't mean local <span>ideas</span>.
-                </>
-              }
-              contents={[
-                // "We operate out of Hamilton New Zealand and work with local Kiwi clients to build unique brands that won’t just stand out in the local community, but even on the world stage. Harnessing the power of modern technologies means your ideas and artistries are catapulted into the public sphere, expanding your targeted audiences and establishing a greater public presence for your business in New Zealand and around the globe.",
-                "With our base of satisfied clients growing day by day, we’re eager to continue providing optimal results for all your marketing needs at an unbeatable budget. Just check out some of our clients below and see the results for yourself!",
-              ]}
+              heading={<>{parser(props.sections[1].heading)}</>}
+              contents={props.sections[1].contents.map(
+                (_content) => _content.text
+              )}
             />
           </div>
         </div>
-
-        <div className={styles.section}>
-          <Client
-            name="Plot Collective"
-            url="www.plotco.co.nz"
-            webp="images/inigo-de-la-maza-s285sDw5Ikc-unsplash.webp"
-            fallback="images/inigo-de-la-maza-s285sDw5Ikc-unsplash.jpg"
-            alt="PlotCo"
-            socials={[
-              { url: "", icon: FaInstagram },
-              { url: "", icon: FaTwitter },
-              { url: "", icon: FaFacebookF },
-              { url: "", icon: FaGlobeAsia },
-            ]}
-            tags={["web", "brand", "media"]}
-            description="One of our closest partners, we built the Plotco brand together from the ground up. Building networks of retail clients, expanding into a physical shopfront and cafe, and developing the brand presence both in the local Hamilton community and online, we were and still are with them every step of the way."
-          />
-        </div>
-        <div className={styles.section}>
-          <Client
-            name="Ginger and Honey"
-            url="www.gingerandhoney.co.nz"
-            webp="images/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.webp"
-            fallback="images/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg"
-            alt="Ginger and Honey"
-            socials={[
-              { url: "", icon: FaInstagram },
-              { url: "", icon: FaTwitter },
-              { url: "", icon: FaFacebookF },
-              { url: "", icon: FaGlobeAsia },
-            ]}
-            tags={["web", "media"]}
-            description="Ginger and Honey was an already established business operating out of the Waikato region and was ready for the next step. We developed their online presence and built engaging community connections that skyrocketed them from local business to operating New Zealand wide."
-          />
-        </div>
+        {props.clients.map((_client) => (
+          <div key={_client.id} className={styles.section}>
+            <Client
+              name={_client.name}
+              url={_client.link}
+              webp=""
+              fallback={`${baseUrl}${_client.image.url}`}
+              alt={_client.name}
+              socials={_client.socials
+                .filter((_social) => !!socialsKeyMap[_social.type])
+                .map((_social) => ({
+                  url: _social.link,
+                  icon: socialsKeyMap[_social.type],
+                }))}
+              tags={_client.tags.map((_tag) => _tag.text)}
+              description={_client.description}
+            />
+          </div>
+        ))}
       </Page.Content>
     </Page.Wrapper>
   );
 }
 
-// export async function getStaticProps() {
-//   const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-home`);
-//   console.log(res.data);
-//   return {
-//     props: res.data,
-//   };
-// }
+export async function getStaticProps() {
+  const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-home`);
+  return {
+    props: res.data,
+  };
+}
 
 export default Home;
