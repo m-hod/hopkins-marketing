@@ -3,7 +3,6 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
 import Input from "../Input/Input";
-import { sendEmail } from "../../api";
 
 type State = {
   first_name: string;
@@ -77,16 +76,21 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                 </h3>
                 <form
                   className={styles.formContent}
-                  onSubmit={(e) => {
+                  onSubmit={async (e) => {
                     e.preventDefault();
                     setStatus("loading");
-                    sendEmail(state)
-                      .then(() => {
-                        setStatus("submitted");
-                      })
-                      .catch(() => {
-                        setStatus("error");
-                      });
+                    const res = await fetch("/api/email", {
+                      method: "POST",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(state),
+                    });
+                    if (res.status === 200) {
+                      setStatus("submitted");
+                    } else {
+                      setStatus("error");
+                    }
                   }}
                 >
                   <div className={styles.inputsGrid}>

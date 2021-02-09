@@ -5,33 +5,37 @@ const _mailjet = mailjet.connect(
   process.env.MJ_APIKEY_PRIVATE
 );
 
-module.exports = async () => {
-  _mailjet
+module.exports = (req, res) => {
+  const request = _mailjet
     .post("send", { version: "v3.1" })
     .request({
       Messages: [
         {
           From: {
-            Email: "michaelcshodges@gmail.com",
-            Name: "Hopkins Marketing Group Website",
+            Email: "enim_test@tutanota.com",
+            Name: "Enim Web Services",
           },
           To: [
             {
               Email: "michaelcshodges@gmail.com",
-              Name: "Michael Hodges",
+              Name: "Hopkins Marketing Group",
             },
           ],
-          Subject: "New enquiry received",
-          HTMLPart: `<h3>New Enquiry Received:</h3> <br /> <ul><li><strong>Name:</strong> hi</li><li><strong>Email:</strong> hi</li><li><strong>Phone:</strong> hi</li><li><strong>Message:</strong> hi</li></ul>`,
+          Subject: "New correspondence received",
+          TemplateID: 2154841,
+          TemplateLanguage: true,
+          Variables: {
+            ...req.body,
+            domain: "hopkinsmarketing.org"
+          }
         },
       ],
-    })
-    .then((res) => {
-      console.log(res.body);
-      return res.body;
+    });
+  request.then((result) => {
+      res.json({result})
     })
     .catch((err) => {
-      console.warn(err);
-      return err;
+      console.warn(err)
+      res.status(err.statusCode).end();
     });
 };
