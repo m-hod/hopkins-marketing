@@ -5,37 +5,62 @@ const _mailjet = mailjet.connect(
   process.env.MJ_APIKEY_PRIVATE
 );
 
-module.exports = (req, res) => {
-  const request = _mailjet
-    .post("send", { version: "v3.1" })
-    .request({
-      Messages: [
-        {
-          From: {
-            Email: "enim_test@tutanota.com",
-            Name: "Enim Web Services",
-          },
-          To: [
-            {
-              Email: "michaelcshodges@gmail.com",
-              Name: "Hopkins Marketing Group",
+function checkError(response) {
+  if(response.ok) {
+    return response.json();
+  } else {
+    throw new Error(response.statusText)
+  }
+}
+
+module.exports = async (req, res) => {
+  const {captcha, ...body} = req.body;
+  fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_RECAPTCHA_SECRET_KEY}&response=${captcha}`, {
+    method: "POST",
+  }).then(checkError).then(_res => {
+    if(_res.success) {
+      const request = _mailjet
+      .post("send", { version: "v3.1" })
+      .request({
+        Messages: [
+          {
+            From: {
+              Email: "enim_test@tutanota.com",
+              Name: "Enim Web Services",
             },
-          ],
-          Subject: "New correspondence received",
-          TemplateID: 2154841,
-          TemplateLanguage: true,
-          Variables: {
-            ...req.body,
-            domain: "hopkinsmarketing.org"
-          }
-        },
-      ],
-    });
-  request.then((result) => {
-      res.json({result})
-    })
-    .catch((err) => {
-      console.warn(err)
-      res.status(err.statusCode).end();
-    });
-};
+            To: [
+              {
+                Email: "michaelcshodges@gmail.com",
+                Name: "Hopkins Marketing Group",
+              },
+            ],
+            Subject: "New correspondence received",
+            TemplateID: 2154841,
+            TemplateLanguage: true,
+            Variables: {
+              ...body,
+              domain: "hopkinsmarketing.org"
+            },
+            Headers: {
+              "Reply-To": body.email
+            }
+          },
+        ],
+      });
+      request.then((result) => {
+          res.json({result})
+        })
+        .catch((err) => {
+          res.send({error: err.message})
+        });
+    } else {
+      res.status(403).send({error: "Failed to verify captcha with server"});
+    }
+  }).catch(err => {
+    res.send({error: err.message})
+  })
+  .catch(err => {
+    res.send({error: err.message})
+  })
+}
+    

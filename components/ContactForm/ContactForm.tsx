@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
 import Input from "../Input/Input";
+import ReCaptcha from "react-google-recaptcha";
 
 type State = {
   first_name: string;
@@ -15,7 +16,7 @@ type State = {
 function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<
-    "default" | "loading" | "submitted" | "error"
+    "default" | "loading" | "submitted" | "error" | "captcha"
   >("default");
   const [state, setState] = useState<State>({
     first_name: "",
@@ -24,6 +25,7 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
     email: "",
     message: "",
   });
+  const [captcha, setCaptcha] = useState("");
 
   function updateState(e: string, key: keyof State) {
     setState((prevState) => {
@@ -52,14 +54,10 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   <span>Thanks</span> for your message. We're looking forward to
                   working with you and we'll be in <span>touch</span> shortly.
                 </h3>
-                <p>
-                  We've also sent you an email confirming your message. If you
-                  don't see it, make sure to check your spam folder.
-                </p>
                 <div className={styles.buttonContainer}>
                   <Button
                     color={"brand"}
-                    title="Got it"
+                    title="Back"
                     action={() => {
                       setIsOpen(false);
                     }}
@@ -78,13 +76,20 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                   className={styles.formContent}
                   onSubmit={async (e) => {
                     e.preventDefault();
+                    if (!captcha) {
+                      setStatus("captcha");
+                      return;
+                    }
                     setStatus("loading");
                     const res = await fetch("/api/email", {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json",
                       },
-                      body: JSON.stringify(state),
+                      body: JSON.stringify({
+                        ...state,
+                        captcha,
+                      }),
                     });
                     if (res.status === 200) {
                       setStatus("submitted");
@@ -148,6 +153,25 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                         minLength={50}
                       />
                     </div>
+                  </div>
+                  <div className={styles.captchaContainer}>
+                    <ReCaptcha
+                      sitekey={
+                        process.env.NEXT_PUBLIC_GOOGLE_RECATPCHA_CLIENT_KEY
+                      }
+                      onChange={(e) => {
+                        if (status === "captcha") {
+                          setStatus("default");
+                        }
+                        console.log(e);
+                        setCaptcha(e);
+                      }}
+                    />
+                    {status === "captcha" && (
+                      <p>
+                        Please complete the captcha before submitting the form.
+                      </p>
+                    )}
                   </div>
                   <div className={styles.buttonContainer}>
                     <Button
