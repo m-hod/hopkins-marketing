@@ -25,17 +25,17 @@ module.exports = async (req, res) => {
         Messages: [
           {
             From: {
-              Email: "enim_test@tutanota.com",
+              Email: "noreply@enim.tech",
               Name: "Enim Web Services",
             },
             To: [
               {
-                Email: "michaelcshodges@gmail.com",
+                Email: "hopkinsmarketing@gmail.com",
                 Name: "Hopkins Marketing Group",
               },
             ],
-            Subject: "New correspondence received",
-            TemplateID: 2154841,
+            Subject: "New Correspondence Received",
+            TemplateID: 2415160,
             TemplateLanguage: true,
             Variables: {
               ...body,
@@ -63,4 +63,3 @@ module.exports = async (req, res) => {
     res.send({error: err.message})
   })
 }
-    
