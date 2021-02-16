@@ -13,7 +13,7 @@ import classnames from "classnames";
 import Client from "../components/Client/Client";
 import useObserver from "../hooks/useObserver";
 import Image from "../components/Image/Image";
-import { baseUrl } from "../contants";
+import { baseUrl } from "../utils/contants";
 import Axios from "axios";
 import {
   Client as ClientType,

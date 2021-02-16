@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { debounce } from "../utils/contants";
+import { debounce } from "../utils";
 
 export const mobile = 600;
 export const tablet = 900;

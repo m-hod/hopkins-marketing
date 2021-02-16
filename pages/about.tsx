@@ -5,7 +5,7 @@ import styles from "./about.module.scss";
 import TeamCard from "../components/TeamCard/TeamCard";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 import Axios from "axios";
-import { baseUrl } from "../contants";
+import { baseUrl } from "../utils/contants";
 import { AboutCard, AboutContent, AboutQuote } from "../types";
 import parser from "html-react-parser";
 

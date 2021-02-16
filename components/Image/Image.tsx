@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Image.module.scss";
 import classnames from "classnames";
-import { baseUrl } from "../../contants";
+import { baseUrl } from "../../utils/contants";
 
 function Image({
   url,

@@ -163,7 +163,6 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                         if (status === "captcha") {
                           setStatus("default");
                         }
-                        console.log(e);
                         setCaptcha(e);
                       }}
                     />

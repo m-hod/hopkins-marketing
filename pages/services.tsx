@@ -5,7 +5,7 @@ import ServiceSection from "../components/ServiceSection/ServiceSection";
 import Head from "next/head";
 import { detect } from "detect-browser";
 import Axios from "axios";
-import { baseUrl } from "../contants";
+import { baseUrl } from "../utils/contants";
 import { Service } from "../types";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 
