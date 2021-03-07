@@ -58,11 +58,7 @@ function ContactForm({
             <h1>{content.Title}</h1>
             {status === "submitted" ? (
               <>
-                <h3>
-                  {parser(content.Success)}
-                  {/* <span>Thanks</span> for your message. We're looking forward to
-                  working with you and we'll be in <span>touch</span> shortly. */}
-                </h3>
+                <h3>{parser(content.Success)}</h3>
                 <div className={styles.buttonContainer}>
                   <Button
                     color={"brand"}
@@ -75,13 +71,7 @@ function ContactForm({
               </>
             ) : (
               <>
-                <h3>
-                  {parser(content.Description)}
-                  {/* Whether you’ve got a burning <span>idea</span> you want to
-                  make reality, a <span>business</span> that you’re ready to
-                  take to the next level, or simply have a question about{" "}
-                  <span>marketing</span>, we’re ready and waiting. */}
-                </h3>
+                <h3>{parser(content.Description)}</h3>
                 <form
                   className={styles.formContent}
                   onSubmit={async (e) => {
@@ -189,13 +179,7 @@ function ContactForm({
                       loading={status === "loading"}
                       style={{ width: 150, height: 30 }}
                     />
-                    {status === "error" && (
-                      <p>
-                        {parser(content.Error)}
-                        {/* Oops! Looks like something went wrong. Please try again,
-                        or feel free to give us a call on +64 021 111 1111. */}
-                      </p>
-                    )}
+                    {status === "error" && <p>{parser(content.Error)}</p>}
                   </div>
                 </form>
               </>
