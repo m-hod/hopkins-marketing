@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import * as Page from "../components/Page/Page";
 import Head from "next/head";
 import styles from "./about.module.scss";
@@ -6,81 +6,80 @@ import TeamCard from "../components/TeamCard/TeamCard";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
 import Axios from "axios";
 import { baseUrl } from "../utils/contants";
-import { AboutCard, AboutContent, AboutQuote } from "../types";
 import parser from "html-react-parser";
+import { Schema } from "../types";
 
-function About({
-  cards,
-  quotes,
-  content,
-}: {
-  cards: AboutCard[];
-  quotes: AboutQuote[];
-  content: AboutContent;
-}) {
+function About(props: Schema) {
+  const about = props.about;
   const media = useMediaQuery();
 
+  const page = useMemo(
+    () => props.pages.find((_page) => _page.slug === "home"),
+    [props.pages]
+  );
+
   return (
-    <Page.Wrapper>
+    <Page.Wrapper form={props.contactForm}>
       <Head>
-        <title>About - Hopkins Marketing Group</title>
+        <title>{page?.Title}</title>
         <meta
           name="description"
           property="og:description"
-          content="Hopkins Marketing Group was built from the ground up by CEO Elliot Hopkins. Through his personal experience in the process he offers a unique perspective on marketing and building brands for businesses to help bring them to the wider public."
+          content={page?.Description}
         />
-        <meta
-          name="keywords"
-          content="hopkins, marketing, nz, new zealand, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
-        />
+        <meta name="keywords" content={page?.Keywords} />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Page.Content>
         <div className={styles.container}>
           <div className={styles.content}>
-            <small>{content.subtitle}</small>
-            <h1>{content.title}</h1>
-            <p>{content.sections[0].text}</p>
+            <small>{about.content.subtitle}</small>
+            <h1>{about.content.title}</h1>
+            <p>{about.content.sections[0].text}</p>
             {media < tablet && (
               <TeamCard
-                pfpImageUrl={cards[0].profileImage.url}
-                name={cards[0].name}
-                role={cards[0].role}
-                description={cards[0].description}
-                imageUrl={cards[0].image.url}
+                pfpImageUrl={about.cards[0].profileImage.url}
+                name={about.cards[0].name}
+                role={about.cards[0].role}
+                description={about.cards[0].description}
+                imageUrl={about.cards[0].image.url}
               />
             )}
             {media >= tablet && (
               <>
-                <p>{content.sections[1].text}</p>
+                <p>{about.content.sections[1].text}</p>
                 <p className={styles.emphasis}>
-                  {parser(quotes[0].description)}
+                  {parser(about.quotes[0].description)}
                 </p>
               </>
             )}
-            <p className={styles.emphasis}>{parser(quotes[1].description)}</p>
+            <p className={styles.emphasis}>
+              {parser(about.quotes[1].description)}
+            </p>
           </div>
           <div className={styles.cards}>
             {media >= tablet && (
               <TeamCard
-                pfpImageUrl={cards[0].profileImage.url}
-                name={cards[0].name}
-                role={cards[0].role}
-                description={cards[0].description}
-                imageUrl={cards[0].image.url}
+                pfpImageUrl={about.cards[0].profileImage.url}
+                name={about.cards[0].name}
+                role={about.cards[0].role}
+                description={about.cards[0].description}
+                imageUrl={about.cards[0].image.url}
               />
             )}
-            {media < tablet && <p>{content.sections[1].text}</p>}
+            {media < tablet && <p>{about.content.sections[1].text}</p>}
             <TeamCard
-              pfpImageUrl={cards[1].profileImage.url}
-              name={cards[1].name}
-              role={cards[1].role}
-              description={cards[1].description}
-              imageUrl={cards[1].image.url}
+              pfpImageUrl={about.cards[1].profileImage.url}
+              name={about.cards[1].name}
+              role={about.cards[1].role}
+              description={about.cards[1].description}
+              imageUrl={about.cards[1].image.url}
             />
             {media < tablet && (
-              <p className={styles.emphasis}>{parser(quotes[0].description)}</p>
+              <p className={styles.emphasis}>
+                {parser(about.quotes[0].description)}
+              </p>
             )}
           </div>
         </div>
@@ -90,7 +89,7 @@ function About({
 }
 
 export async function getStaticProps() {
-  const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-about`);
+  const res = await Axios.get<Schema>(`${baseUrl}/hopkins-marketing`);
   return {
     props: res.data,
   };

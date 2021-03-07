@@ -15,21 +15,10 @@ import useObserver from "../hooks/useObserver";
 import Image from "../components/Image/Image";
 import { baseUrl } from "../utils/contants";
 import Axios from "axios";
-import {
-  Client as ClientType,
-  HomeSection,
-  ShortService,
-  StrapiImage,
-} from "../types";
+import { Schema } from "../types";
 import parser from "html-react-parser";
 import { IconType } from "react-icons/lib";
-
-type Props = {
-  heroImage: StrapiImage;
-  clients: ClientType[];
-  sections: HomeSection[];
-  services: ShortService[];
-};
+import { useMemo } from "react";
 
 const socialsKeyMap: {
   [key in "twitter" | "facebook" | "instagram"]: IconType;
@@ -39,25 +28,29 @@ const socialsKeyMap: {
   facebook: FaFacebookF,
 };
 
-function Home(props: Props) {
+function Home(props: Schema) {
+  const home = props.home;
   const { isContentVisible } = useObserver("hero");
+
+  const page = useMemo(
+    () => props.pages.find((_page) => _page.slug === "home"),
+    [props.pages]
+  );
 
   return (
     <Page.Wrapper
       headerMode="fixed"
       headerColor={isContentVisible ? "white" : "brand"}
+      form={props.contactForm}
     >
       <Head>
-        <title>Hopkins Marketing Group</title>
+        <title>{page?.Title}</title>
         <meta
           name="description"
           property="og:description"
-          content="Hopkins Marketing Group is a digital marketing solutions company based out of Hamilton, New Zealand. We work closely with our clients to bring their business to a wider audience, including branding, media management, multimedia services, and web design."
+          content={page?.Description}
         />
-        <meta
-          name="keywords"
-          content="hopkins, marketing, nz, new zealand, digital, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
-        />
+        <meta name="keywords" content={page?.Keywords} />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -82,7 +75,7 @@ function Home(props: Props) {
           <FaChevronDown size={30} />
         </div>
         <Image
-          url={props.heroImage.url}
+          url={home.heroImage.url}
           alt=""
           containerStyles={styles.heroImage}
         />
@@ -96,15 +89,15 @@ function Home(props: Props) {
             {}
             <ContentSection
               centered
-              heading={<>{parser(props.sections[0].heading)}</>}
-              contents={props.sections[0].contents.map(
+              heading={<>{parser(home.sections[0].heading)}</>}
+              contents={home.sections[0].contents.map(
                 (_content) => _content.text
               )}
             />
           </div>
         </div>
         <div className={classnames(styles.section, styles.cardGrid)}>
-          {props.services.map((_service) => (
+          {home.services.map((_service) => (
             <ServiceCard
               key={_service.id}
               title={_service.title}
@@ -120,14 +113,14 @@ function Home(props: Props) {
           <div className={styles.sectionSlim}>
             <ContentSection
               centered
-              heading={<>{parser(props.sections[1].heading)}</>}
-              contents={props.sections[1].contents.map(
+              heading={<>{parser(home.sections[1].heading)}</>}
+              contents={home.sections[1].contents.map(
                 (_content) => _content.text
               )}
             />
           </div>
         </div>
-        {props.clients.map((_client) => (
+        {home.clients.map((_client) => (
           <div key={_client.id} className={styles.section}>
             <Client
               name={_client.name}
@@ -151,7 +144,7 @@ function Home(props: Props) {
 }
 
 export async function getStaticProps() {
-  const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-home`);
+  const res = await Axios.get<Schema>(`${baseUrl}/hopkins-marketing`);
   return {
     props: res.data,
   };

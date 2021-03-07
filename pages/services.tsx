@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import * as Page from "../components/Page/Page";
 import { useRouter } from "next/router";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
@@ -6,14 +6,19 @@ import Head from "next/head";
 import { detect } from "detect-browser";
 import Axios from "axios";
 import { baseUrl } from "../utils/contants";
-import { Service } from "../types";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
+import { Schema } from "../types";
 
-function services({ sections }: { sections: Service[] }) {
+function services(props: Schema) {
   const media = useMediaQuery();
   const router = useRouter();
   const browser = detect();
   const browserExceptions = browser.name === "chrome";
+
+  const page = useMemo(
+    () => props.pages.find((_page) => _page.slug === "home"),
+    [props.pages]
+  );
 
   useEffect(() => {
     if (router.query.service) {
@@ -36,25 +41,19 @@ function services({ sections }: { sections: Service[] }) {
     : undefined;
 
   return (
-    <Page.Wrapper headerMode="sticky">
+    <Page.Wrapper headerMode="sticky" form={props.contactForm}>
       <Head>
-        <title>
-          Services - {serviceName ? `${serviceName} -` : undefined} Hopkins
-          Marketing Group
-        </title>
+        <title>{page?.Title}</title>
         <meta
           name="description"
           property="og:description"
-          content="Hopkins Marketing Group marketing services include branding, social media management, photography for weddings and graduations, videography for live events, music videos, and general filming and editing services, and web design services for static websites, server hosting, and SEO (search engine optimisation)."
+          content={page?.Description}
         />
-        <meta
-          name="keywords"
-          content="hopkins, marketing, nz, new zealand, digital marketing, marketing services, hamilton, local, media, branding, social media, photography, videography, web design"
-        />
+        <meta name="keywords" content={page?.Keywords} />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {sections.map((section, i) => (
+      {props.services.sections.map((section, i) => (
         <ServiceSection
           key={section.id}
           browserExceptions={browserExceptions}
@@ -74,7 +73,7 @@ function services({ sections }: { sections: Service[] }) {
 }
 
 export async function getStaticProps() {
-  const res = await Axios.get(`${baseUrl}/hopkins-marketing-group-services`);
+  const res = await Axios.get<Schema>(`${baseUrl}/hopkins-marketing`);
   return {
     props: res.data,
   };

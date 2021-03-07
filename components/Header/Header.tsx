@@ -1,17 +1,19 @@
 import React, { HTMLAttributes, useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Header.module.scss";
-import Button from "../Button/Button";
 import classnames from "classnames";
 import ContactForm from "../ContactForm/ContactForm";
 import useMediaQuery, { mobile } from "../../hooks/useMediaQuery";
+import { ContactForm as ContactFormType } from "../../types";
 
 function Header({
   mode = "sticky",
   color = "brand",
+  formContent,
 }: {
   mode?: "sticky" | "fixed";
   color: "brand" | "white";
+  formContent: ContactFormType;
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isExpandedContentVisible, setIsExpandedContentVisible] = useState(
@@ -62,7 +64,7 @@ function Header({
                 alt=""
               />
               <div className={styles.contactContainer}>
-                <ContactForm buttonColor={color} />
+                <ContactForm buttonColor={color} content={formContent} />
               </div>
             </>
           ) : (
@@ -104,7 +106,7 @@ function Header({
             className: styles.lastLink,
           }}
         />
-        <ContactForm buttonColor={color} />
+        <ContactForm buttonColor={color} content={formContent} />
       </div>
     </header>
   );

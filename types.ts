@@ -1,3 +1,41 @@
+export type Schema = {
+  pages: SEOPage[];
+  home: {
+    heroImage: StrapiImage;
+    clients: Client[];
+    sections: HomeSection[];
+    services: ShortService[];
+  };
+  services: {
+    sections: Service[]
+  };
+  about: {
+    cards: AboutCard[];
+    quotes: AboutQuote[];
+    content: AboutContent;
+  };
+  contactForm: ContactForm;
+}
+
+export type SEOPage = {
+  id: number;
+  Title: string;
+  Description: string;
+  Keywords: string;
+  slug: string;
+}
+
+export type ContactForm = {
+  id: number;
+  Title: string;
+  // as html
+  Description: string;
+  // as html
+  Success: string;
+  // as html
+  Error: string;
+}
+
 export type StrapiImage = {
   id: number;
   url: string;

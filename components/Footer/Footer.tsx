@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./Footer.module.scss";
 import { FaArrowUp, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
 import Link from "next/link";
-import Button from "../Button/Button";
 import ContactForm from "../ContactForm/ContactForm";
+import { ContactForm as ContactFormType } from "../../types";
 
-function Footer() {
+function Footer({ formContent }: { formContent: ContactFormType }) {
   return (
     <footer className={styles.container}>
       <div className={styles.grid}>
@@ -20,7 +20,7 @@ function Footer() {
                 label="hopkinsmarketinggroup@gmail.com"
               />
               <div style={{ marginTop: 12 }}>
-                <ContactForm buttonColor="white" />
+                <ContactForm buttonColor="white" content={formContent} />
               </div>
             </>
           }

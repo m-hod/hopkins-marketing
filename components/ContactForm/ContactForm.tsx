@@ -4,6 +4,8 @@ import Modal from "../Modal/Modal";
 import styles from "./ContactForm.module.scss";
 import Input from "../Input/Input";
 import ReCaptcha from "react-google-recaptcha";
+import { ContactForm as ContactFormType } from "../../types";
+import parser from "html-react-parser";
 
 type State = {
   first_name: string;
@@ -13,7 +15,13 @@ type State = {
   message: string;
 };
 
-function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
+function ContactForm({
+  buttonColor,
+  content,
+}: {
+  buttonColor: "white" | "brand";
+  content: ContactFormType;
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [status, setStatus] = useState<
     "default" | "loading" | "submitted" | "error" | "captcha"
@@ -47,12 +55,13 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
       {isOpen && (
         <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
           <div className={styles.container}>
-            <h1>Contact us</h1>
+            <h1>{content.Title}</h1>
             {status === "submitted" ? (
               <>
                 <h3>
-                  <span>Thanks</span> for your message. We're looking forward to
-                  working with you and we'll be in <span>touch</span> shortly.
+                  {parser(content.Success)}
+                  {/* <span>Thanks</span> for your message. We're looking forward to
+                  working with you and we'll be in <span>touch</span> shortly. */}
                 </h3>
                 <div className={styles.buttonContainer}>
                   <Button
@@ -67,10 +76,11 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
             ) : (
               <>
                 <h3>
-                  Whether you’ve got a burning <span>idea</span> you want to
+                  {parser(content.Description)}
+                  {/* Whether you’ve got a burning <span>idea</span> you want to
                   make reality, a <span>business</span> that you’re ready to
                   take to the next level, or simply have a question about{" "}
-                  <span>marketing</span>, we’re ready and waiting.
+                  <span>marketing</span>, we’re ready and waiting. */}
                 </h3>
                 <form
                   className={styles.formContent}
@@ -181,8 +191,9 @@ function ContactForm({ buttonColor }: { buttonColor: "white" | "brand" }) {
                     />
                     {status === "error" && (
                       <p>
-                        Oops! Looks like something went wrong. Please try again,
-                        or feel free to give us a call on +64 021 111 1111.
+                        {parser(content.Error)}
+                        {/* Oops! Looks like something went wrong. Please try again,
+                        or feel free to give us a call on +64 021 111 1111. */}
                       </p>
                     )}
                   </div>
