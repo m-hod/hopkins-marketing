@@ -85,6 +85,7 @@ function Header({
         >
           <NavLink to="/" label="Home" dropdown />
           <NavLink to="/services" label="Services" dropdown />
+          <NavLink to="/portfolio" label="Portfolio" dropdown />
           <NavLink
             to="/about"
             label="About"
@@ -99,6 +100,7 @@ function Header({
       <div className={styles.linksContainer}>
         <NavLink to="/" label="Home" />
         <NavLink to="/services" label="Services" />
+        <NavLink to="/portfolio" label="Portfolio" />
         <NavLink
           to="/about"
           label="About"

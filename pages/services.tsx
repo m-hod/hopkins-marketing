@@ -1,13 +1,15 @@
-import React, { useEffect, useMemo } from "react";
 import * as Page from "../components/Page/Page";
-import { useRouter } from "next/router";
-import ServiceSection from "../components/ServiceSection/ServiceSection";
-import Head from "next/head";
-import { detect } from "detect-browser";
-import Axios from "axios";
-import { baseUrl } from "../utils/contants";
+
+import React, { useEffect, useMemo } from "react";
 import useMediaQuery, { tablet } from "../hooks/useMediaQuery";
+
+import Axios from "axios";
+import Head from "next/head";
 import { Schema } from "../types";
+import ServiceSection from "../components/ServiceSection/ServiceSection";
+import { baseUrl } from "../utils/contants";
+import { detect } from "detect-browser";
+import { useRouter } from "next/router";
 
 function services(props: Schema) {
   const media = useMediaQuery();
@@ -34,22 +36,16 @@ function services(props: Schema) {
     }
   }, [router]);
 
-  const serviceName = router.query.service
-    ? //@ts-ignore
-      router.query.service.charAt(0).toUpperCase() +
-      router.query.service.slice(1)
-    : undefined;
-
   return (
     <Page.Wrapper headerMode="sticky" form={props.contactForm}>
       <Head>
-        <title>{page?.Title}</title>
+        <title>{page?.Title || ""}</title>
         <meta
           name="description"
           property="og:description"
-          content={page?.Description}
+          content={page?.Description || ""}
         />
-        <meta name="keywords" content={page?.Keywords} />
+        <meta name="keywords" content={page?.Keywords || ""} />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -66,6 +62,7 @@ function services(props: Schema) {
             return i % 2 === 0 ? "right" : "left";
           })()}
           content={section.content}
+          portfolioLink={section.portfolioLink}
         />
       ))}
     </Page.Wrapper>

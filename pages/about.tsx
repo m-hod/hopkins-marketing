@@ -21,13 +21,13 @@ function About(props: Schema) {
   return (
     <Page.Wrapper form={props.contactForm}>
       <Head>
-        <title>{page?.Title}</title>
+        <title>{page?.Title || ""}</title>
         <meta
           name="description"
           property="og:description"
-          content={page?.Description}
+          content={page?.Description || ""}
         />
-        <meta name="keywords" content={page?.Keywords} />
+        <meta name="keywords" content={page?.Keywords || ""} />
         <link rel="icon" type="image/svg+xml" href="/images/Logo.svg" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

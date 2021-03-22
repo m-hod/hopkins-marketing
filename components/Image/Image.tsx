@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./Image.module.scss";
-import classnames from "classnames";
 import { baseUrl } from "../../utils/contants";
+import classnames from "classnames";
+import styles from "./Image.module.scss";
 
 function Image({
   url,
@@ -23,18 +23,13 @@ function Image({
       )}
       style={{
         ...rest.style,
-        backgroundImage: `url(${baseUrl}${url})`,
+        backgroundImage: `url(${url})`,
       }}
     />
   ) : (
     <picture className={classnames(containerStyles)} {...rest}>
       <>
-        {/* <source srcSet={webp} type="image/webp" /> */}
-        <img
-          src={`${baseUrl}${url}`}
-          className={styles.backgroundImage}
-          alt={alt}
-        />
+        <img src={`${url}`} className={styles.backgroundImage} alt={alt} />
       </>
     </picture>
   );

@@ -7,7 +7,7 @@ export type Schema = {
     services: ShortService[];
   };
   services: {
-    sections: Service[]
+    sections: Service[];
   };
   about: {
     cards: AboutCard[];
@@ -15,7 +15,17 @@ export type Schema = {
     content: AboutContent;
   };
   contactForm: ContactForm;
-}
+  portfolio: {
+    videographySubtitle: string;
+    videographyTitle: string;
+    videographyAnchor: string;
+    videos: PortfolioVideo[];
+    webSubtitle: string;
+    webTitle: string;
+    webAnchor: string;
+    websites: PortfolioWebsite[];
+  };
+};
 
 export type SEOPage = {
   id: number;
@@ -23,7 +33,7 @@ export type SEOPage = {
   Description: string;
   Keywords: string;
   slug: string;
-}
+};
 
 export type ContactForm = {
   id: number;
@@ -34,7 +44,7 @@ export type ContactForm = {
   Success: string;
   // as html
   Error: string;
-}
+};
 
 export type StrapiImage = {
   id: number;
@@ -42,10 +52,15 @@ export type StrapiImage = {
   alternativeText: string;
   formats: {
     thumbnail: Image;
-    small: Image;
-    medium?: Image;
-    large?: Image;
   };
+};
+
+export type StrapiVideo = {
+  id: number;
+  name: string;
+  alternativeText: string;
+  url: string;
+  mime: string;
 };
 
 export type Image = {
@@ -102,6 +117,10 @@ export type Service = {
   title: string;
   content: ServiceContent[];
   image: StrapiImage;
+  portfolioLink?: {
+    link: string;
+    anchor: string;
+  };
 };
 
 export type ServiceContent = {
@@ -137,4 +156,19 @@ export type AboutContent = {
 export type AboutSection = {
   id: number;
   text: string;
+};
+
+// Portfolio
+
+export type PortfolioVideo = {
+  id: number;
+  thumbnail: StrapiImage;
+  video: StrapiVideo;
+};
+
+export type PortfolioWebsite = {
+  id: number;
+  url: string;
+  thumbnail: StrapiImage;
+  images: StrapiImage[];
 };

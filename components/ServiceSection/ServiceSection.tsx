@@ -1,6 +1,7 @@
+import Image from "../Image/Image";
+import Link from "next/link";
 import React from "react";
 import styles from "./ServiceSection.module.scss";
-import Image from "../Image/Image";
 
 function ServiceSection({
   title,
@@ -10,6 +11,7 @@ function ServiceSection({
   orientation,
   id,
   browserExceptions,
+  portfolioLink,
 }: {
   title: string;
   content: {
@@ -21,6 +23,10 @@ function ServiceSection({
   orientation: "left" | "right";
   id: string;
   browserExceptions?: boolean;
+  portfolioLink?: {
+    link: string;
+    anchor: string;
+  };
 }) {
   return (
     <div className={styles.container} id={id}>
@@ -32,6 +38,16 @@ function ServiceSection({
             <p>{el.description}</p>
           </div>
         ))}
+        {portfolioLink && (
+          <Link
+            href={{
+              pathname: portfolioLink.link,
+              query: { portfolio: portfolioLink.anchor },
+            }}
+          >
+            <a className={styles.link}>See our work here</a>
+          </Link>
+        )}
       </div>
       <Image
         url={imageUrl}
