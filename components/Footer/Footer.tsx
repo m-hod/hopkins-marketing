@@ -1,9 +1,10 @@
-import React from "react";
-import styles from "./Footer.module.scss";
-import { FaArrowUp, FaFacebookF, FaTwitter, FaInstagram } from "react-icons/fa";
-import Link from "next/link";
+import { FaArrowUp, FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+
 import ContactForm from "../ContactForm/ContactForm";
 import { ContactForm as ContactFormType } from "../../types";
+import Link from "next/link";
+import React from "react";
+import styles from "./Footer.module.scss";
 
 function Footer({ formContent }: { formContent: ContactFormType }) {
   return (
@@ -13,7 +14,7 @@ function Footer({ formContent }: { formContent: ContactFormType }) {
           title="CONTACT US"
           content={
             <>
-              <p>+64 021 111 1111</p>
+              <p>+64 027 882 3548</p>
               <LinkItem
                 external
                 to="mailto:hopkinsmarketinggroup@gmail.com"
