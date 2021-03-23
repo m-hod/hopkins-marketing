@@ -10,6 +10,7 @@ import Head from "next/head";
 import Image from "../components/Image/Image";
 import Modal from "../components/Modal/Modal";
 import { baseUrl } from "../utils/contants";
+import classnames from "classnames";
 import styles from "./portfolio.module.scss";
 import { useRouter } from "next/router";
 
@@ -118,7 +119,7 @@ function Portfolio(props: Schema) {
           </div>
         </Modal>
       )}
-      {activeWebImages.length && (
+      {!!activeWebImages.length && (
         <Modal
           isOpen={!!activeWebImages.length}
           setIsOpen={() => {
@@ -151,7 +152,7 @@ function WebModal({ url, images }: { url: string; images: StrapiImage[] }) {
           <FiGlobe />
         </a>
       </div>
-      <div className={styles.modal}>
+      <div className={classnames(styles.modal, styles.modalWeb)}>
         <div className={styles.webModalContainer}>
           <Image url={images[index].url} alt={images[index].alternativeText} />
         </div>

@@ -84,12 +84,8 @@
 
 .modal {
   width: 100%;
-  max-height: 75vh;
   max-width: 75vw;
-  overflow: auto;
-  overflow-x: hidden;
   z-index: 10000;
-  @include scrollbar;
   span {
     color: $color-brand;
   }
@@ -101,6 +97,12 @@
   @media screen and (max-width: $mobile) {
     max-width: 90vw;
     max-height: 90vw;
+  }
+  &Web {
+    max-height: 75vh;
+    overflow: auto;
+    overflow-x: hidden;
+    @include scrollbar;
   }
 }
 

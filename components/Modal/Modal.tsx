@@ -1,4 +1,5 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
+
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.scss";
 
@@ -19,20 +20,22 @@ function Modal({
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const scrollPositionAtRender = useRef(document.documentElement.scrollTop);
-
   useEffect(() => {
-    function disableScroll() {
-      window.scrollTo(0, scrollPositionAtRender.current);
+    if (typeof document !== "undefined") {
+      if (isOpen) {
+        document.body.style.height = "100%";
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.height = "auto";
+        document.body.style.overflow = "auto";
+        document.body.style.overflowX = "hidden";
+      }
     }
-    if (isOpen) {
-      window.addEventListener("scroll", disableScroll);
-      return () => {
-        window.removeEventListener("scroll", disableScroll);
-      };
-    } else {
-      window.removeEventListener("scroll", disableScroll);
-    }
+    return () => {
+      document.body.style.height = "auto";
+      document.body.style.overflow = "auto";
+      document.body.style.overflowX = "hidden";
+    };
   }, [isOpen]);
 
   useEffect(() => {
