@@ -58,7 +58,13 @@ function Footer({ formContent }: { formContent: ContactFormType }) {
           </div>
           <div className={styles.credits}>
             <small>© Hopkins Marketing 2020</small>
-            <small>Created by Michael Hodges</small>
+            <small className={styles.enim}>
+              <img
+                src="https://enim-content-cdn.sgp1.cdn.digitaloceanspaces.com/enim/logos/logo-circle.svg"
+                width={20}
+              />
+              Enim Web Services
+            </small>
           </div>
         </div>
       </div>
